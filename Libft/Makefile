@@ -1,0 +1,44 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vilopes <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/10/21 22:01:31 by vilopes           #+#    #+#              #
+#    Updated: 2024/10/21 22:42:56 by vilopes          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+NAME = libft.a
+SRC = ft_isalpha.c
+OBJ = $(SRC:.c=.o)
+
+
+# Compile the executable
+all: $(NAME)
+
+
+# Create the executable from the object files
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
+
+
+# Compile each ".c" on the ".o"
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+# Clear all object files
+clean:
+	rm -rf $(OBJ)
+
+# Clear all, include the executable
+fclean: clean
+	rm -rf $(NAME)
+
+# Reconstruct all
+re: fclean all
+	
