@@ -6,16 +6,27 @@
 /*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 22:46:04 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/21 23:01:45 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/10/22 17:32:58 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 #include <stdio.h>
 
 int	main(int argc, char **argv)
 {
-	printf("ft_islower: %i\n", ft_isalpha(argv[1][0]));
+	int	arg;
+
+	arg = argv[1][0];
+	if (argc < 2)
+		return (1);
+//	LIBC
+	printf("ft_isalphai(%c): %i\n", arg, ft_isalpha(arg));
+	printf("ft_isdigit(%c): %i\n", arg, ft_isdigit(arg));
+	printf("ft_isalnum(%c): %i\n", arg, ft_isalnum(arg));
+	printf("ft_isascii(%c): %i\n", arg, ft_isascii(arg));
+	printf("ft_isascii(200): %i\n", ft_isascii(200));
+	printf("ft_isprint(b): %i\n", ft_isprint('b'));
+	printf("ft_isprint('\\n'): %i\n", ft_isprint('\n'));
 	return (0);
 }

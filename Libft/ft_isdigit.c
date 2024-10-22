@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 20:59:39 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/22 15:59:49 by vilopes          ###   ########.fr       */
+/*   Created: 2024/10/22 16:03:00 by vilopes           #+#    #+#             */
+/*   Updated: 2024/10/22 16:33:59 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	isupper(int c)
+int	ft_isdigit(int c)
 {
-	if (!(c >= 'A' && c <= 'Z'))
-		return (0);
-	return (1);
-}
-
-static	int	islower(int c)
-{
-	if (!(c >= 'a' && c <= 'z'))
-		return (0);
-	return (1);
-}
-
-int	ft_isalpha(int c)
-{
-	return (isupper(c) || islower(c));
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
