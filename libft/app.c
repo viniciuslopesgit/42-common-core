@@ -6,7 +6,7 @@
 /*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 22:46:04 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/24 23:34:41 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/10/25 20:39:09 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,7 @@ int	main(int argc, char **argv)
 	else
 		printf("ft_strlcat: %zu\n", ft_strlcat(dest01, argv[1], size));
 
+	//ft_toupper
+	printf("ft_toupper(%c): %c", argv[1][0], ft_toupper(argv[1][0]));
 	return (0);
 }
