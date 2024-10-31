@@ -6,7 +6,7 @@
 /*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 20:54:06 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/24 22:12:29 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/10/31 18:19:53 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	const unsigned char	*src_ptr;
 	unsigned char		*dest_ptr;
 
-	if (!dest || !src)
+	if (!dest && !src)
 		return (NULL);
 	if (dest < src)
 		return (ft_memcpy(dest, src, n));

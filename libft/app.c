@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   app.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 22:46:04 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/25 21:26:53 by vilopes          ###   ########.fr       */
+/*   Created: 2024/10/31 20:47:41 by vilopes           #+#    #+#             */
+/*   Updated: 2024/10/31 21:04:47 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,20 @@ int	main(int argc, char **argv)
 	//ft_strchr
 	printf("ft_strchr(%s): %s\n", argv[1], ft_strchr(argv[1], argv[1][0]));
 
-	//ft_strrchr
+	//ft_strbmp
+	printf("ft_strncmp(%s) (%s): %i\n", argv[1], argv[2], ft_strncmp(src, argv[1], 5));
 
+	//ft_memchr
+	printf("ft_memchr(%s): %p\n", argv[1], ft_memchr(src, 'W', 13));
 
+	//ft_memcmp
+	char arr1[] = {0x12, 0x34, 0x56};
+	char arr2[] = {0x12, 0x34, 0x57};
+	int result = ft_memcmp(arr1, arr2, 3);
+	printf("ft_memcmp: %d\n", result); // Deve retornar um valor negativo
+
+	//ft_strnstr
+	printf("ft_strnstr:  %s\n", ft_strnstr(argv[1], argv[2], 80));
 
 	return (0);
 
