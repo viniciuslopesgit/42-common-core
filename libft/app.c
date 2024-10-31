@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:47:41 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/31 21:04:47 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/10/31 21:32:17 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,10 @@ int	main(int argc, char **argv)
 	printf("ft_memcmp: %d\n", result); // Deve retornar um valor negativo
 
 	//ft_strnstr
-	printf("ft_strnstr:  %s\n", ft_strnstr(argv[1], argv[2], 80));
+	printf("ft_strnstr:  %s\n", ft_strnstr("esta casa bonita", "casa", 80));
+
+	//ft_atoi
+	printf("ft_atoi(%s): %i\n", argv[1], ft_atoi(argv[1]));
 
 	return (0);
 
