@@ -6,13 +6,14 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:08:55 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/31 21:31:41 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/05 20:13:52 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdint.h>
 # include <stdlib.h>
 
 // LIBC
@@ -36,4 +37,10 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *litle, size_t len);
 int		ft_atoi(const char *str);
+// CALLOC
+void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strdup(const char *s);
+// OTHERS
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
 #endif

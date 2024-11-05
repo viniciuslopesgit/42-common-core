@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:47:41 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/31 21:32:17 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/05 19:51:32 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,50 @@ int	main(int argc, char **argv)
 
 	//ft_atoi
 	printf("ft_atoi(%s): %i\n", argv[1], ft_atoi(argv[1]));
+
+	//ft_calloc (Alloc memoria, mas inicia elas em 0 para evitar lixo de memoria)
+	size_t i;
+	int *arr;
+
+	arr = (int *)ft_calloc(5, sizeof(int));
+	if (!arr)
+	{
+		printf("arr nao existe!\n");
+		return (1);
+	}
+	i = 0;
+	while (arr[i])
+	{
+		if (arr[i] != 0)
+		{
+			printf("Error: arr[%zu] nao foi inicializado para zero\n", i);
+			free(arr);
+			return (1);
+		}
+		i++;
+	}
+	printf("ft_calloc: Sucesso\n");
+	free(arr);
+	
+	//ft_strdup
+	char	*copy;
+	
+	copy = ft_strdup(argv[1]);
+	if (copy != NULL)
+	{
+		printf("ft_strdup: Original: %s\n", argv[1]);
+		printf("ft_strdup: Copia: %s\n", copy);
+	}
+	else
+		printf("ft_strdup: Error");
+	free(copy);
+
+	// ft_substr
+	char *sub;
+	
+	sub = &argv[1][0];
+	printf("ft_substr: %s", ft_substr(sub, 4, 10));
+	
 
 	return (0);
 
