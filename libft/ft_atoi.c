@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 21:19:46 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/31 21:39:50 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 20:09:03 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	ft_atoi(const char *str)
 	return (sign * result);
 }
 /*
+// ATOI: converte string em inteiro
+
 int main(int argc, char **argv)
 {
 	if (argc == 2)
