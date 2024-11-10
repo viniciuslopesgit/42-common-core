@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 18:41:15 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/10 19:05:29 by vilopes          ###   ########.fr       */
+/*   Created: 2024/11/10 19:08:31 by vilopes           #+#    #+#             */
+/*   Updated: 2024/11/10 19:35:30 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, &c, 1);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }
 /*
 int	main(int argc, char **argv)
 {
-	ft_putchar_fd('E', 1);
+	char	*str;
+
+	ft_putstr_fd(argv[1], 1);
 	return (0);
 }
 */
