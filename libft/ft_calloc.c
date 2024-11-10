@@ -26,3 +26,14 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_memset(ptr, 0, total_size);
 	return (ptr);
 }
+/*
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		printf("ft_calloc: %s\n", ft_calloc(atoi(argv[1]), atoi(argv[2])));
+		printf("calloc: %s\n", calloc(atoi(argv[1]), atoi(argv[2])));
+	}
+	return (0);
+}
+*/

@@ -18,7 +18,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	j;
 	char	*str;
 
-	str = '\0';
+	str = NULL;
 	if (s1 != 0 && set != 0)
 	{
 		i = 0;
@@ -33,3 +33,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	return (str);
 }
+/*
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		printf("ft_strtrim: %s\n", ft_strtrim(argv[1], argv[2]));
+		printf("strtrim: %s\n", strtrim(argv[1], argv[2]));
+	}
+	return (0);
+}
+*/

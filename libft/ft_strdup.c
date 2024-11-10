@@ -30,3 +30,14 @@ char	*ft_strdup(const char *s)
 	}
 	return (mem);
 }
+/*
+int main(int argc, char **argv)
+{
+	if (argc == 2)
+	{
+		printf("Original string: %s\n", argv[1]);
+		printf("Duplicated string: %s\n", ft_strdup(argv[1]));
+	}
+	return (0);
+}
+*/

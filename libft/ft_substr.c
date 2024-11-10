@@ -32,3 +32,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(mem, s + start, actual_len + 1);
 	return (mem);
 }
+/*
+int main(int argc, char **argv)
+{
+	if (argc == 4)
+	{
+		printf("ft_substr: %s\n", ft_substr(argv[1], atoi(argv[2]), atoi(argv[3])));
+		printf("substr: %s\n", substr(argv[1], atoi(argv[2]), atoi(argv[3])));
+	}
+	return (0);
+}
+*/

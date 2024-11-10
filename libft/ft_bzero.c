@@ -25,3 +25,13 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
+/*
+int main(int argc, char **argv)
+{
+	if (argc < 2)
+		return (1);
+		//ft_bzero
+	ft_bzero(buffer, sizeof(buffer));
+	printf("ft_bzero(%c): %s Buffer zerado!\n", argv[1][0], buffer);
+}
+*/

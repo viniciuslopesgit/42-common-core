@@ -34,3 +34,21 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	dest[j] = '\0';
 	return (len_dest + len_src);
 }
+/*
+int main(int argc, char **argv)
+{
+	if (argc < 2)
+		return (1);
+	char src[] = "Hello, World!";
+	char dest[20];
+	size_t size = 16;
+
+	char dest01[] = "cachorro, ";
+	ft_strlcat(dest01, argv[1], size);
+	if (size > sizeof(argv[1]))
+		printf("ft_strlcat(%s): %s\n", argv[1], dest01);
+	else
+		printf("ft_strlcat: %zu\n", ft_strlcat(dest01, argv[1], size));
+	return (0);
+}
+*/

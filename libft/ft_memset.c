@@ -26,3 +26,15 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
+/*
+int main(int argc, char **argv)
+{
+	char buffer[10];
+	if (argc < 2)
+		return (1);
+	ft_memset(buffer, argv[1][0], sizeof(buffer) - 1);
+	buffer[sizeof(buffer) - 1] = '\0';
+	printf("ft_memset(%c): %s\n", argv[1][0], buffer);
+	return (0);
+}
+*/

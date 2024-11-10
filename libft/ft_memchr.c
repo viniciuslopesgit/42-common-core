@@ -27,3 +27,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+/*
+int main(int argc, char **argv)
+{
+	char src[] = "Hello, World!";
+	printf("ft_memchr(%s): %p\n", src, ft_memchr(src, 'W', 13));
+	return (0);
+}
+*/

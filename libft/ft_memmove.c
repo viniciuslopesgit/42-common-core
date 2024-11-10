@@ -27,3 +27,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		dest_ptr[n] = src_ptr[n];
 	return (dest);
 }
+/*
+int main(int argc, char **argv)
+{
+	char src[] = "Hello, World!";
+	char dest[20];
+	size_t size = 16;
+
+	ft_memmove(dest, src, sizeof(src));
+	printf("ft_memmove(%s): %s\n", src, dest);
+	rerturn (0);
+}
+*/

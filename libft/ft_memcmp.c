@@ -29,3 +29,13 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+/*
+int main(int argc, char **argv)
+{
+	char arr1[] = {0x12, 0x34, 0x56};
+	char arr2[] = {0x12, 0x34, 0x57};
+	int result = ft_memcmp(arr1, arr2, 3);
+	printf("ft_memcmp: %d\n", result); // Deve retornar um valor negativo
+	return (0);
+}
+*/

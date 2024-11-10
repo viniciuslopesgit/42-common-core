@@ -27,3 +27,18 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	dest[i] = '\0';
 	return (ft_strlen(src));
 }
+/*
+int main(int argc, char **argv)
+{
+	char src[] = "Hello, World!";
+	char dest[20];
+	size_t size = 16;
+
+	ft_strlcpy(dest, src, size);
+	if (!size)
+		printf("ft_strlcpy: %zu\n", ft_strlcpy(dest, src, size));
+	else
+		printf("ft_strlcpy(%s): %s\n", src, dest);
+	return (0);
+}
+*/

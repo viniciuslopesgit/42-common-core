@@ -36,3 +36,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[i + j] = '\0';
 	return (str);
 }
+/*
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		printf("Original string: %s\n", argv[1]);
+		printf("Original string: %s\n", argv[2]);
+		printf("Joined string: %s\n", ft_strjoin(argv[1], argv[2]));
+	}
+	return (0);
+}
+*/

@@ -30,3 +30,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 	}
 	return (NULL);
 }
+/*
+int main(int argc, char **argv)
+{
+	if (argc == 4)
+	{
+		printf("ft_strnstr: %s\n", ft_strnstr(argv[1], argv[2], atoi(argv[3])));
+		printf("strnstr: %s\n", strnstr(argv[1], argv[2], atoi(argv[3])));
+	}
+	return (0);
+}
+*/

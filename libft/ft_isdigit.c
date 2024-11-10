@@ -18,3 +18,12 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
+/*
+int	main(int argc, char **argv)
+{
+	if (argc < 2)
+		return (1);
+	printf("ft_isdigit(%c): %i\n", argv[1][0], ft_isdigit(argv[1][0]));
+	return (0);
+}
+*/

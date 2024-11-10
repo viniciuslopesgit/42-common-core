@@ -19,3 +19,12 @@ int	ft_toupper(int c)
 	c = c - 32;
 	return (c);
 }
+/*
+int main(int argc, char **argv)
+{
+	if (argc < 2)
+		return (0);
+	printf("ft_toupper(%c): %c\n", argv[1][0], ft_toupper(argv[1][0]));
+	return (0);
+}
+*/

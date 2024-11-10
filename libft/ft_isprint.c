@@ -18,3 +18,13 @@ int	ft_isprint(int c)
 		return (1);
 	return (0);
 }
+/*
+int	main(int argc, char **argv)
+{
+	if (argc < 2)
+		return (1);
+	printf("ft_isprint(b): %i\n", ft_isprint('b'));
+	printf("ft_isprint('\\n'): %i\n", ft_isprint('\n'));
+	return (0);
+}
+*/

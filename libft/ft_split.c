@@ -113,3 +113,16 @@ char	**ft_split(char const *str, char c)
 	}
 	return (strs);
 }
+/*
+int main(int argc, char **argv)
+{
+	char **strs = ft_split("Hello, World!", ' ');
+	int i = 0;
+	while (strs[i] != NULL)
+	{
+		printf("ft_split(%s): %s\n", "Hello, World!", strs[i]);
+		i++;
+	}
+	return (0);
+}
+*/

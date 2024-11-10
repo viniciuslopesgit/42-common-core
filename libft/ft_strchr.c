@@ -29,3 +29,12 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)&s[i]);
 	return (NULL);
 }
+/*
+int main(int argc, char **argv)
+{
+	if (argv < 2)
+		return (1);
+	printf("ft_strchr(%s): %s\n", argv[1], ft_strchr(argv[1], argv[1][0]));
+	return (0);
+}
+*/

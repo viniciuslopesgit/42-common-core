@@ -16,3 +16,12 @@ int	ft_isalnum(int c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c));
 }
+/*
+int main(int argc, char **argv)
+{
+	if (argc < 2)
+		return (1);
+	printf("ft_isalnum(%c): %i\n", argv[1][0], ft_isalnum(argv[1][0]));
+	return (0);
+}
+*/

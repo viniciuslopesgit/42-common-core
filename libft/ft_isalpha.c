@@ -30,3 +30,12 @@ int	ft_isalpha(int c)
 {
 	return (isupper(c) || islower(c));
 }
+/*
+int	main(int argc, char **argv)
+{
+	if (argc < 2)
+		return (1);
+	printf("ft_isalpha(%c): %i\n", argv[1][0], ft_isalpha(argv[1][0]));
+	return (0);
+}
+*/

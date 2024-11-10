@@ -21,3 +21,11 @@ int	ft_strlen(const char *str)
 		s++;
 	return (s);
 }
+/*
+int main (int argc, char **argv)
+{
+	if (argv < 2)
+		printf("ft_strlen(%s): %i\n",argv[1], ft_strlen(argv[1]));
+	return (0);
+}
+*/
