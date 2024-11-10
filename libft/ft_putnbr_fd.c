@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 19:38:11 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/10 19:41:47 by vilopes          ###   ########.fr       */
+/*   Created: 2024/11/10 19:45:26 by vilopes           #+#    #+#             */
+/*   Updated: 2024/11/10 20:06:16 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_putnbr_fd(int nm, int fd)
 {
-	if (s)
+	unsigned int	nbr;
+
+	if (nm < 0)
 	{
-		write(fd, s, ft_strlen(s));
-		write(fd, "\n", 1);
+		ft_putchar_fd('-', fd);
+		nbr = (unsigned int)(nm * -1);
 	}
+	else
+		nbr = (unsigned int)nm;
+	if (nbr > 9)
+		ft_putnbr_fd((nbr / 10), fd);
+	ft_putchar_fd(nbr % 10 + '0', fd);
 }
 /*
 int	main(int argc, char **argv)
 {
-	ft_putendl_fd("hello", 1);
+	int	number;
+
+	number = ft_atoi(argv[1]);
+	ft_putnbr_fd(number, 1);
 	return (0);
 }
 */
