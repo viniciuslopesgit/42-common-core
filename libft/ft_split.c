@@ -6,23 +6,23 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:30:56 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/05 21:31:21 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 18:32:23 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_freeup(char *strs)
+static void	ft_freeup(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (strs[i] != '\0')
+	while (str[i] != '\0')
 	{
-		free(strs);
+		free(str);
 		i++;
 	}
-	free(strs);
+	free(str);
 }
 
 static int	ft_wordcount(char *str, char c)
@@ -66,22 +66,20 @@ static char	*ft_stralloc(char *str, char c, int *k)
 {
 	char	*word;
 	int		j;
+	int		len;
 
+	while (str[*k] != '\0' && str[*k] == c)
+		(*k)++;
 	j = *k;
-	word = NULL;
-	while (str[*k] != '\0')
+	len = 0;
+	while (str[*k] != '\0' && str[*k] != c)
 	{
-		if (str[*k] != c)
-		{
-			while (str[*k] != '\0' && str[*k] != c)
-				*k += 1;
-			word = (char *)malloc(sizeof(char) * (*k + 1));
-			if (word == NULL)
-				return (NULL);
-			break ;
-		}
-		*k += 1;
+		(*k)++;
+		len++;
 	}
+	word = (char *)malloc(sizeof(char) * (len + 1));
+	if (!word)
+		return (NULL);
 	ft_strcpy(word, str, c, j);
 	return (word);
 }
