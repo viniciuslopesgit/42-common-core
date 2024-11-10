@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:15:18 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/05 21:18:00 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 17:49:46 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int main(int argc, char **argv)
 {
 	if (argc == 4)
 	{
-		printf("ft_substr: %s\n", ft_substr(argv[1], atoi(argv[2]), atoi(argv[3])));
-		printf("substr: %s\n", substr(argv[1], atoi(argv[2]), atoi(argv[3])));
+		printf("ft: %s\n", ft_substr(argv[1], atoi(argv[2]), atoi(argv[3])));
+		printf("ori: %s\n", substr(argv[1], atoi(argv[2]), atoi(argv[3])));
 	}
 	return (0);
 }

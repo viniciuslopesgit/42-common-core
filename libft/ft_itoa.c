@@ -3,69 +3,69 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 21:19:46 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/10 08:00:56 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2024/11/10 17:38:41 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_nbrlen(int n)
+static int	ft_get_size(int n)
 {
-    int len;
+	int	size;
 
-    len = 0;
-    if (n <= 0)
-    {
-        len++;
-    }
-    while (n != 0)
-    {
-        n = n / 10;
-        len++;
-    }
-    return (len);
+	size = 0;
+	if (n <= 0)
+		size++;
+	while (n != 0)
+	{
+		n = n / 10;
+		size++;
+	}
+	return (size);
 }
 
-char    *ft_itoa(int n)
+static void	ft_fill_res(int size, int offset, int n, char *res)
 {
-    char *str;
-    int len;
-    int sign;
-
-    if (n == 0)
-    {
-        str = (char *)malloc(2 * sizeof(char));
-        if (!str)
-            return (NULL);
-        str[0] = '0';
-        str[1] = '\0';
-        return (str);
-    }
-    len = ft_nbrlen(n);
-    sign = 0;
-    if (n < 0)
-    {
-        sign = 1;
-        n = n * -1;
-    }
-    str = (char *)malloc(sizeof(char) * (len + 1));
-    if (!str)
-        return (NULL);
-    str[len] = '\0';
-    while (len > 0)
-    {
-        str[--len] = (n % 10) + '0';
-        n = n / 10;
-    }
-    if (sign == 1)
-    {
-        str[0] = '-';
-    }
-    return (str);
+	while (size > offset)
+	{
+		res[size - 1] = n % 10 + '0';
+		n = n / 10;
+		size--;
+	}
 }
+
+char	*ft_itoa(int n)
+{
+	int		offset;
+	int		size;
+	char	*res;
+
+	offset = 0;
+	size = ft_get_size(n);
+	res = (char *)malloc(sizeof(char) * size + 1);
+	if (!res)
+		return (0);
+	if (n == -2147483648)
+	{
+		res[0] = '-';
+		res[1] = '2';
+		n = 147483648;
+		offset = 2;
+	}
+	if (n < 0)
+	{
+		res[0] = '-';
+		offset = 1;
+		n = -n;
+	}
+	ft_fill_res(size, offset, n, res);
+	res[size] = '\0';
+	return (res);
+}
+
 /*
 int main(int argc, char **argv)
 {

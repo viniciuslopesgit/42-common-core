@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:29:54 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/07 19:05:02 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 17:49:13 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 {
 	if (argc == 3)
 	{
-		printf("ft_strtrim: %s\n", ft_strtrim(argv[1], argv[2]));
+		printf("ft: %s\n", ft_strtrim(argv[1], argv[2]));
 		printf("strtrim: %s\n", strtrim(argv[1], argv[2]));
 	}
 	return (0);
