@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 19:59:53 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/31 20:32:42 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:22:58 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 /*
 int main(int argc, char **argv)
 {
+	// ft_memcmp: Compara dois blocos de memoria byte a byte e retorna uma
+	// diferenca entre os primeiros bytes encontrados
 	char arr1[] = {0x12, 0x34, 0x56};
 	char arr2[] = {0x12, 0x34, 0x57};
 	int result = ft_memcmp(arr1, arr2, 3);

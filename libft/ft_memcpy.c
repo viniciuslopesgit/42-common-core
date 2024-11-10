@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 20:31:49 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/31 18:18:27 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:23:40 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 /*
 int main (int argc, char **argv)
 {
+	// ft_memcpy: Copia uma quantidade de bytes de um bloco de
+	// memoria para outro
 	char src[] = "Hello, World!";
 	char dest[20];
 	size_t size = 16;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:24:24 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/31 19:57:34 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:36:06 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 /*
 int main(int argc, char **argv)
 {
+	// ft_strncmp: Compra duas strings e retorna a diferanca
+	// levando em consideracao o tamanho de "n".
 	if (argc == 4)
 	{
 		printf("Original string: %s\n", argv[1]);

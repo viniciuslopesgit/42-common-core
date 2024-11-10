@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:22:05 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/22 17:26:45 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:20:46 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_isprint(int c)
 /*
 int	main(int argc, char **argv)
 {
+	// ft_isprint: Verifica se todos os valores sao imprimiveis.
 	if (argc < 2)
 		return (1);
 	printf("ft_isprint(b): %i\n", ft_isprint('b'));

@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 14:35:47 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/05 20:13:00 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:17:58 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 /*
 int main(int argc, char **argv)
 {
+	// calloc: Aloca memoria, e inicia todos dos bytes com zero.
 	if (argc == 3)
 	{
 		printf("ft_calloc: %s\n", ft_calloc(atoi(argv[1]), atoi(argv[2])));

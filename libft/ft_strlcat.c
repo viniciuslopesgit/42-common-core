@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 22:49:57 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/24 23:36:39 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:33:53 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 /*
 int main(int argc, char **argv)
 {
+	// ft_strlcat: Concatena duas str levando em consideracao o len.
 	if (argc < 2)
 		return (1);
 	char src[] = "Hello, World!";

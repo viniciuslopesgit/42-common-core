@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:43:42 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/22 16:48:33 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:19:51 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_isascii(int c)
 /*
 int main(int argc, char **argv)
 {
+	// ft_isascii: Verifica se todos os valores sao ascii.
 	if (argc < 2)
 		return (1);
 	printf("ft_isascii(%c): %i\n", argv[1][0], ft_isascii(argv[1][0]));

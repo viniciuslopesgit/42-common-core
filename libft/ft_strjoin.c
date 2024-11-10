@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:26:56 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/05 21:27:47 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:32:37 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 /*
 int main(int argc, char **argv)
 {
+	// ft_strjoin: Concatena duas strings, e retorna a juncao destas.
 	if (argc == 3)
 	{
 		printf("Original string: %s\n", argv[1]);

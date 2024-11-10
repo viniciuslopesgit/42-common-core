@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 15:10:21 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/05 20:18:46 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:29:59 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	*ft_strdup(const char *s)
 /*
 int main(int argc, char **argv)
 {
+	// ft_strdup: Cria uma copia de uma string
 	if (argc == 2)
 	{
 		printf("Original string: %s\n", argv[1]);

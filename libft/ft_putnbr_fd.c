@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 19:45:26 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/10 20:06:16 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:27:03 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_putnbr_fd(int nm, int fd)
 /*
 int	main(int argc, char **argv)
 {
+	// ft_putnbr_fd: Escreve os numeros em um arquivo ou fluxo.
 	int	number;
 
 	number = ft_atoi(argv[1]);

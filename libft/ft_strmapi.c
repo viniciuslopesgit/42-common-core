@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:36:31 by codespace         #+#    #+#             */
-/*   Updated: 2024/11/10 17:52:48 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:35:15 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char	ft_toupper_test(unsigned int i, char c)
 
 int	main(int argc, char **argv)
 {
+	// ft_strmapi: Aplica uma funcao em cada char de uma string.
 	if (argc == 2)
 	{
 		printf("%s\n", ft_strmapi(argv[1], ft_toupper_test));

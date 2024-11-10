@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 22:17:55 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/24 22:26:37 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:34:18 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 /*
 int main(int argc, char **argv)
 {
+	// ft_strlcpy: Copia uma string levando em consideracao o tamanho da len.
 	char src[] = "Hello, World!";
 	char dest[20];
 	size_t size = 16;

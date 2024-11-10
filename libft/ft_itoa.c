@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 21:19:46 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/10 17:38:41 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:21:15 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ char	*ft_itoa(int n)
 /*
 int main(int argc, char **argv)
 {
+	//ft_itoa: Converte o valor int em str
     if (argc ==2)
     {
         char *str = ft_itoa(ft_atoi(argv[1]));

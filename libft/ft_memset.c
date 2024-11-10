@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:22:49 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/24 20:09:15 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:24:51 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	*ft_memset(void *s, int c, size_t n)
 /*
 int main(int argc, char **argv)
 {
+	// Preenche uma area com um valor especifico.
 	char buffer[10];
 	if (argc < 2)
 		return (1);

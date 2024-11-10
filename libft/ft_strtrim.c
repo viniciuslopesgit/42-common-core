@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:29:54 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/10 17:49:13 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:44:03 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,32 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
-	size_t	j;
+	size_t	len;
 	char	*str;
 
 	str = NULL;
 	if (s1 != 0 && set != 0)
 	{
 		i = 0;
-		j = ft_strlen(s1);
+		len = ft_strlen(s1);
 		while (s1[i] && ft_strchr(set, s1[i]))
 			i++;
-		while (s1[j - 1] && ft_strchr(set, s1[j - 1]) && j > i)
-			j--;
-		str = (char *)malloc(sizeof(char) * (j - i + 1));
+		while (s1[len - 1] && ft_strchr(set, s1[len - 1]) && len > i)
+			len--;
+		str = (char *)malloc(sizeof(char) * (len - i + 1));
 		if (str)
-			ft_strlcpy(str, &s1[i], j - i + 1);
+			ft_strlcpy(str, &s1[i], len - i + 1);
 	}
 	return (str);
 }
 /*
 int main(int argc, char **argv)
 {
+	// ft_strtrim: Remove os separadores fornecidos de uma str
+	// no seu inicio e final.
 	if (argc == 3)
 	{
 		printf("ft: %s\n", ft_strtrim(argv[1], argv[2]));
-		printf("strtrim: %s\n", strtrim(argv[1], argv[2]));
 	}
 	return (0);
 }

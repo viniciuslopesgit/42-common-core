@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 20:55:49 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/25 21:19:47 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:29:19 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	*ft_strchr(const char *s, int c)
 /*
 int main(int argc, char **argv)
 {
+	// ft_strchr: Busca a primeira ocorrencia de um char em uma str.
 	if (argv < 2)
 		return (1);
 	printf("ft_strchr(%s): %s\n", argv[1], ft_strchr(argv[1], argv[1][0]));

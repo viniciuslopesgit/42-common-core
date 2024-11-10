@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 19:54:41 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/24 20:09:29 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:17:16 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_bzero(void *s, size_t n)
 /*
 int main(int argc, char **argv)
 {
+	// ft_bzero: Preenche um bloco de memoria com valores nulos.
 	if (argc < 2)
 		return (1);
 		//ft_bzero

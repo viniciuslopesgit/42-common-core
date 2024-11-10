@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 19:05:07 by vilopes           #+#    #+#             */
-/*   Updated: 2024/10/31 19:38:11 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:21:55 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 /*
 int main(int argc, char **argv)
 {
+	//ft_memchr: Busca um valor especifico dentro de um area de memoria
 	char src[] = "Hello, World!";
 	printf("ft_memchr(%s): %p\n", src, ft_memchr(src, 'W', 13));
 	return (0);
