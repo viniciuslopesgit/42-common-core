@@ -6,18 +6,18 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:05:38 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/20 21:28:04 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/20 21:44:10 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printflib.h"
 
-int ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-    int     len;
+	int		len;
 
-    len = 0;
-    while (str[len] != '\0')
-        len++;
-    return (len);
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	return (len);
 }

@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTFLIB_H 
+#ifndef PRINTFLIB_H
 # define PRINTFLIB_H
 
 # include <stdarg.h>
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
 
-void    ft_putchar(char c);
-int     ft_putstr(char *str);
-int     ft_putnumber(int num);
-char    *ft_itoa(int n);
-int     ft_strlen(const char *str);
+void	ft_putchar(char c);
+int		ft_putstr(char *str);
+int		ft_putnumber(int num);
+char	*ft_itoa(int n);
+int		ft_strlen(const char *str);
 
 #endif

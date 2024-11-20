@@ -6,12 +6,13 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 21:08:36 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/20 20:27:38 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/11/20 21:44:33 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printflib.h"
 
-void    ft_putchar(char c){
-    write(1, &c, 1);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
