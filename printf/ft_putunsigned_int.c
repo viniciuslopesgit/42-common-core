@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printflib.h                                        :+:      :+:    :+:   */
+/*   ft_putunsigned_int.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 21:06:12 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/03 00:27:57 by viniciuslop      ###   ########.fr       */
+/*   Created: 2024/12/02 23:07:31 by viniciuslop       #+#    #+#             */
+/*   Updated: 2024/12/02 23:07:43 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTFLIB_H
-# define PRINTFLIB_H
+#include "printflib.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+int	ft_putunsigned(unsigned int n)
+{
+	int print_char;
 
-void	ft_putchar(char c);
-int		ft_putstr(char *str);
-int		ft_putnumber(int num);
-char	*ft_itoa(int n);
-int		ft_strlen(const char *str);
-int     ft_putpointer(unsigned long ptr);
-int     ft_putunsigned(unsigned int n);
-void    ft_putnbr_hex(int num, int upper);
-
-
-#endif
+	print_char = 0;
+	if (n >= 10)
+		print_char += ft_putunsigned(n / 10);
+	ft_putchar((n % 10) + '0');
+	print_char++;
+	return (print_char);
+}

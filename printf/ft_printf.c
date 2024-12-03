@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 20:54:38 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/20 21:41:21 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/12/03 00:27:18 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	char	c;
-	char	*letter;
-	int		numbers;
-	int		print_char;
+	char			c;
+	char			*letter;
+	int				numbers;
+	unsigned int	numbers_u;
+	int				print_char;
 
 	print_char = 0;
 	va_start(args, format);
@@ -45,6 +46,35 @@ int	ft_printf(const char *format, ...)
 				numbers = va_arg(args, int);
 				print_char += ft_putnumber(numbers);
 			}
+			else if (*format == 'p')
+			{
+				void *ptr = va_arg(args, void *);
+				if (!ptr)
+					print_char += ft_putstr("(nil)");
+				else
+				{
+					ft_putstr("0x");
+					print_char += 2;
+					print_char += ft_putpointer((unsigned long)ptr);
+				}
+			}
+			else if (*format == 'u')
+			{
+				numbers_u = va_arg(args, unsigned int);
+				print_char += ft_putunsigned(numbers_u);
+			}
+			else if (*format == 'x')
+			{
+				numbers = va_arg(args, int);
+				ft_putnbr_hex(numbers, 0);
+				print_char += 8;
+			}
+			else if (*format == 'X')
+			{
+				numbers = va_arg(args, int);
+				ft_putnbr_hex(numbers, 1);
+				print_char += 8;
+			}
 			else
 			{
 				ft_putchar('%');
@@ -62,23 +92,28 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (print_char);
 }
-/*
+
 int	main(void)
 {
-	char	str_char;
-	char	*str;
-	int		num1;
-	int		num2;
+	char			str_char;
+	char			*str;
+	int				num1;
+	int				num2;
+	unsigned int	num3;
 
 	// char
 	str_char = 'c';
 	str = "Hello World";
-	num1 = 10;
+	num1 = 35;
 	num2 = -2147483648;
+	num3 = 4294967254;
 	ft_printf("char: %c\n", str_char);
 	ft_printf("str: %s\n", str);
 	ft_printf("int: %i\n", num1);
 	ft_printf("d: %d\n", num2);
+	ft_printf("p: %p\n", &num1);
+	ft_printf("u: %u\n", num3);
+	ft_printf("x: %x\n", 255);
+	ft_printf("X: %X\n", 255);
 	return (0);
 }
-*/

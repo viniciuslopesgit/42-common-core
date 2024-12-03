@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printflib.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 21:06:12 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/03 00:27:57 by viniciuslop      ###   ########.fr       */
+/*   Created: 2024/12/03 00:15:04 by viniciuslop       #+#    #+#             */
+/*   Updated: 2024/12/03 00:26:44 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTFLIB_H
-# define PRINTFLIB_H
+#include "printflib.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-void	ft_putchar(char c);
-int		ft_putstr(char *str);
-int		ft_putnumber(int num);
-char	*ft_itoa(int n);
-int		ft_strlen(const char *str);
-int     ft_putpointer(unsigned long ptr);
-int     ft_putunsigned(unsigned int n);
-void    ft_putnbr_hex(int num, int upper);
-
-
-#endif
+void ft_putnbr_hex(int num, int upper) {
+    if (num >= 16) {
+        ft_putnbr_hex(num / 16, upper); 
+    }
+    char hex_chars_lower[] = "0123456789abcdef";
+    char hex_chars_upper[] = "0123456789ABCDEF";
+    if (upper)
+    {
+        write(1, &hex_chars_upper[num % 16], 1);
+    }
+    else
+    {
+        write(1, &hex_chars_lower[num % 16], 1);
+    }
+}
