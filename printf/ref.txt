@@ -1,1 +1,4 @@
 https://www.geeksforgeeks.org/how-to-write-your-own-printf-in-c/
+
+testes:
+https://github.com/Tripouille/printfTester
