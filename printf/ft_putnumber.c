@@ -6,11 +6,11 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 20:43:38 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/02 23:06:51 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2024/12/03 00:42:17 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printflib.h"
+#include "ft_printf.h"
 
 int	ft_putnumber(int num)
 {

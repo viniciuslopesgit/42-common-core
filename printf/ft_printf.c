@@ -6,11 +6,11 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 20:54:38 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/03 00:27:18 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2024/12/03 01:02:07 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printflib.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
@@ -93,6 +93,7 @@ int	ft_printf(const char *format, ...)
 	return (print_char);
 }
 
+/*
 int	main(void)
 {
 	char			str_char;
@@ -117,3 +118,4 @@ int	main(void)
 	ft_printf("X: %X\n", 255);
 	return (0);
 }
+*/

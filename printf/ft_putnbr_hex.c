@@ -6,11 +6,11 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 00:15:04 by viniciuslop       #+#    #+#             */
-/*   Updated: 2024/12/03 00:26:44 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2024/12/03 00:42:12 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printflib.h"
+#include "ft_printf.h"
 
 void ft_putnbr_hex(int num, int upper) {
     if (num >= 16) {

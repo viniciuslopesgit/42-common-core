@@ -6,7 +6,7 @@
 #    By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 21:10:08 by vilopes           #+#    #+#              #
-#    Updated: 2024/12/03 00:17:33 by viniciuslop      ###   ########.fr        #
+#    Updated: 2024/12/03 00:53:07 by viniciuslop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
