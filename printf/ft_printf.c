@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 20:54:38 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/03 01:10:53 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2024/12/05 01:39:42 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,7 @@ int	ft_printf(const char *format, ...)
 			else if (*format == 'p')
 			{
 				void *ptr = va_arg(args, void *);
-				if (!ptr)
-					print_char += ft_putstr("(nil)");
-				else
-				{
-					ft_putstr("0x");
-					print_char += 2;
-					print_char += ft_putpointer((unsigned long)ptr);
-				}
+				print_char += ft_putpointer((unsigned long)ptr);
 			}
 			else if (*format == 'u')
 			{
@@ -65,15 +58,13 @@ int	ft_printf(const char *format, ...)
 			}
 			else if (*format == 'x')
 			{
-				numbers = va_arg(args, int);
-				ft_putnbr_hex(numbers, 0);
-				print_char += 8;
+				unsigned int num = va_arg(args, unsigned int);
+				print_char += ft_putnbr_hex(num, 0);
 			}
 			else if (*format == 'X')
 			{
-				numbers = va_arg(args, int);
-				ft_putnbr_hex(numbers, 1);
-				print_char += 8;
+				unsigned int num = va_arg(args, unsigned int);
+				print_char += ft_putnbr_hex(num, 1);
 			}
 			else
 			{
@@ -93,7 +84,7 @@ int	ft_printf(const char *format, ...)
 	return (print_char);
 }
 
-/*
+
 int	main(void)
 {
 	char			str_char;
@@ -116,6 +107,6 @@ int	main(void)
 	ft_printf("u: %u\n", num3);
 	ft_printf("x: %x\n", 255);
 	ft_printf("X: %X\n", 255);
+	ft_printf("p: %p %p", 0, 0);
 	return (0);
 }
-*/

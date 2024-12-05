@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 21:47:51 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/03 00:42:22 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2024/12/05 01:37:03 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putstr(char *str)
 {
-	size_t	len;
+	unsigned long	len;
 
 	len = 0;
 	while (str[len])
