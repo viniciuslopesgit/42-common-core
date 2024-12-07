@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 21:47:51 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/05 01:37:03 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2024/12/07 21:11:39 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ int	ft_putstr(char *str)
 {
 	unsigned long	len;
 
+	if (!str)
+	{
+		write(1, "(null)", 6);
+	}
 	len = 0;
 	while (str[len])
 		len++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 20:54:38 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/05 01:39:42 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2024/12/07 21:13:49 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_printf(const char *format, ...)
 			{
 				letter = va_arg(args, char *);
 				if (!letter)
-					letter = "\0";
+					letter = "(null)";
 				print_char += ft_putstr(letter);
 			}
 			else if (*format == 'd' || *format == 'i')
@@ -84,7 +84,7 @@ int	ft_printf(const char *format, ...)
 	return (print_char);
 }
 
-
+/*
 int	main(void)
 {
 	char			str_char;
@@ -110,3 +110,4 @@ int	main(void)
 	ft_printf("p: %p %p", 0, 0);
 	return (0);
 }
+*/
