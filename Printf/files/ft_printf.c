@@ -6,19 +6,23 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 23:06:42 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/08 01:04:29 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/12/09 21:21:08 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void		ft_printf_check(char s, va_list *args, long int *len, long int *i)
+static void	ft_printf_check(char s, va_list *args, long int *len, long int *i)
 {
 	if (s == 'c')
 		ft_putchar_len(va_arg(*args, int), len);
 	else if (s == 's')
 		ft_putstr(va_arg(*args, char *), len);
+	else if (s == 'p')
+		ft_putpointer(va_arg(*args, size_t), len);
 	else if (s == 'd' || s == 'i')
+		ft_putnbr(va_arg(*args, int), len);
+	else if (s == 'i')
 		ft_putnbr(va_arg(*args, int), len);
 	else if (s == 'u')
 		ft_putunsigned_int(va_arg(*args, unsigned int), len);
@@ -26,8 +30,6 @@ static void		ft_printf_check(char s, va_list *args, long int *len, long int *i)
 		ft_puthex(va_arg(*args, unsigned int), len, 'x');
 	else if (s == 'X')
 		ft_puthex(va_arg(*args, unsigned int), len, 'X');
-	else if (s == 'p')
-		ft_putpointer(va_arg(*args, size_t), len);
 	else if (s == '%')
 		ft_putchar_len('%', len);
 	else

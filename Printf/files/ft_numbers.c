@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 23:35:09 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/08 01:06:59 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/12/09 21:06:43 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putnbr(long int n, long int *len)
 	{
 		write(1, "-2147483648", 11);
 		(*len) += 11;
-		return;
+		return ;
 	}
 	if (n < 0)
 	{
@@ -37,7 +37,7 @@ void	ft_putpointer(size_t ptr, long int *len)
 {
 	char		str[25];
 	long int	i;
-	char 		*base_char;
+	char		*base_char;
 
 	base_char = "0123456789abcdef";
 	i = 0;
@@ -61,9 +61,9 @@ void	ft_putpointer(size_t ptr, long int *len)
 
 void	ft_puthex(unsigned int x, long int *len, char c)
 {
-	char str[25];
-	char *base_char;
-	long int i;
+	char		str[25];
+	char		*base_char;
+	long int	i;
 
 	i = 0;
 	if (c == 'X')
@@ -73,7 +73,7 @@ void	ft_puthex(unsigned int x, long int *len, char c)
 	if (x == 0)
 	{
 		ft_putchar_len('0', len);
-		return;
+		return ;
 	}
 	while (x != 0)
 	{

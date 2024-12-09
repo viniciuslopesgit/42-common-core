@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 22:59:15 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/08 00:36:14 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/12/09 20:59:55 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putstr(char *str, int long *len)
 	{
 		write(1, "(null)", 6);
 		(*len) += 6;
-		return;
+		return ;
 	}
 	while (str[i] != '\0')
 	{
