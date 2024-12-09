@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 23:35:09 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/09 21:06:43 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/12/09 23:30:21 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,13 @@ void	ft_putpointer(size_t ptr, long int *len)
 
 	base_char = "0123456789abcdef";
 	i = 0;
-	write(1, "0x", 2);
-	(*len) += 2;
 	if (ptr == 0)
 	{
-		ft_putchar_len('0', len);
+		ft_putstr("(nil)", len);
+		return ;
 	}
+	write(1, "0x", 2);
+	(*len) += 2;
 	while (ptr != 0)
 	{
 		str[i] = base_char[ptr % 16];
