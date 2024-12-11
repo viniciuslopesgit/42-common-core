@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 19:08:31 by vilopes           #+#    #+#             */
-/*   Updated: 2024/11/10 21:27:23 by vilopes          ###   ########.fr       */
+/*   Created: 2024/12/09 23:34:59 by vilopes           #+#    #+#             */
+/*   Updated: 2024/12/11 21:59:47 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	ft_putstr_fd(char *s, int fd)
-{
-	int	i;
+# include <unistd.h>
+# include <stdlib.h>
 
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
-}
-/*
-int	main(int argc, char **argv)
-{
-	// ft_putstr_fd: Escreve uma string em um arquivo ou fluxo.
-	char	*str;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
-	ft_putstr_fd(argv[1], 1);
-	return (0);
-}
-*/
+char    *get_next_line(int fd);
+char    *ft_strdup(const char *s);
+char    *ft_strjoin(char const *s1, char const *s2);
+char    *ft_strchr(const char *s, int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+#endif
