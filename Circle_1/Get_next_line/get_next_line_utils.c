@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 23:36:23 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/13 19:39:33 by vilopes          ###   ########.fr       */
+/*   Updated: 2024/12/16 22:57:36 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,22 @@ static int	ft_strlen(const char *str)
 	while (str[len] != '\0')
 		len++;
 	return (len);
+}
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+{
+	size_t	i;
+
+	if (!size)
+		return (ft_strlen(src));
+	i = 0;
+	while (src[i] && (i < size - 1))
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (ft_strlen(src));
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -47,24 +63,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-char	*ft_strchr(const char *s, int c)
-{
-	size_t	i;
-	char	vc;
-
-	vc = (unsigned char)c;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == vc)
-			return ((char *)&s[i]);
-		i++;
-	}
-	if (vc == '\0')
-		return ((char *)&s[i]);
-	return (NULL);
-}
-
 char	*ft_strdup(const char *s)
 {
 	char	*mem;
@@ -82,22 +80,6 @@ char	*ft_strdup(const char *s)
 		i++;
 	}
 	return (mem);
-}
-
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-{
-	size_t	i;
-
-	if (!size)
-		return (ft_strlen(src));
-	i = 0;
-	while (src[i] && (i < size - 1))
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (ft_strlen(src));
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
