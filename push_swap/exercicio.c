@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:17:33 by viniciuslop       #+#    #+#             */
-/*   Updated: 2025/02/11 01:22:21 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/12 20:36:40 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,6 @@ void liberarLista(No **cabeca)
     {
         temp = *cabeca;
         *cabeca = (*cabeca)->proximo;
+        free(temp);
     }
-    free(temp);
 }
