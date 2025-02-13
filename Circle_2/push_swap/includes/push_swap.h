@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:44:25 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/12 23:30:48 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/02/13 22:05:28 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdbool.h>
 # include <limits.h>
+# include <stdlib.h>
 # include "ft_printf.h"
 # include "libft.h"
 
@@ -26,13 +27,16 @@ typedef struct node
 } node;
 
 // Handle erros
+void	free_errors(node **stack_a);
+long	ft_atol(const char *str);
+bool	erro_syntax(const char *str);
+void	add_node(node **stack, int value);
+bool    error_duplicate(node *stack_a, int nbr);
 
 // Stack initiation
-
-// Stack utils
-
+void    init_stack_a(node **stack_a, char **argv);
 // Commands
-
-// Algorithms
+bool    is_sorted(node *stack);
+void    sa(node **stack_a);
 
 #endif

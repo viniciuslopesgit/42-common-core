@@ -6,35 +6,36 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:30:56 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/13 01:08:10 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/02/13 22:50:18 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-static void	ft_freeup(char **strs, int i)
-{
-	while (i >= 0)
-	{
-		free(strs[i]);
-		i--;
-	}
-	free(strs);
-}
+#include <stdlib.h>
+#include <stdio.h>
+
+// static void	ft_freeup(char **strs, int i)
+// {
+// 	while (i >= 0)
+// 	{
+// 		free(strs[i]);
+// 		i--;
+// 	}
+// 	free(strs);
+// }
 
 static int	ft_wordcount(const char *str, char c)
 {
-	int	i;
-	int	word;
+	int	i = 0;
+	int	word = 0;
 
-	i = 0;
-	word = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if (str[i] != c)
 		{
 			word++;
-			while (str[i] != c && str[i] != '\0')
+			while (str[i] && str[i] != c)
 				i++;
 		}
 		else
@@ -43,89 +44,37 @@ static int	ft_wordcount(const char *str, char c)
 	return (word);
 }
 
-static void	ft_strcpy(char *word, const char *str, char c, int j)
+static char *ft_strndup(const char *src, int n)
 {
-	int	i;
-
-	i = 0;
-	while (str[j] != '\0' && str[j] == c)
-		j++;
-	while (str[j + i] != c && str[j + i] != '\0')
-	{
-		word[i] = str[j + i];
-		i++;
-	}
-	word[i] = '\0';
+	char *dest = (char *)malloc(n + 1);
+	if (!dest)
+		return (NULL);
+	for (int i = 0; i < n; i++)
+		dest[i] = src[i];
+	dest[n] = '\0';
+	return (dest);
 }
 
-static char	*ft_stralloc(const char *str, char c, int *k)
+char **ft_split(const char *str, char c)
 {
-	char	*word;
-	int		j;
-	int		len;
+	char **result;
+	int words = ft_wordcount(str, c);
+	int i = 0, j = 0, start = 0;
 
-	while (str[*k] != '\0' && str[*k] == c)
-		(*k)++;
-	j = *k;
-	len = 0;
-	while (str[*k] != '\0' && str[*k] != c)
+	if (!str || !(result = (char **)malloc((words + 1) * sizeof(char *))))
+		return (NULL);
+	while (str[i])
 	{
-		(*k)++;
-		len++;
-	}
-	if (len == 0)
-		return (NULL);
-	word = (char *)malloc(sizeof(char) * (len + 1));
-	if (!word)
-		return (NULL);
-	ft_strcpy(word, str, c, j);
-	return (word);
-}
-
-char	**ft_split(const char *str, char c)
-{
-	char	**strs;
-	int		i;
-	int		j;
-	int		pos;
-
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	pos = 0;
-	j = ft_wordcount(str, c);
-	strs = (char **)malloc(sizeof(char *) * (j + 1));
-	if (strs == NULL)
-		return (NULL);
-	strs[j] = NULL;
-	while (i < j)
-	{
-		strs[i] = ft_stralloc(str, c, &pos);
-		if (strs[i] == NULL)
+		if (str[i] != c)
 		{
-			ft_freeup(strs, i - 1);
-			return (NULL);
+			start = i;
+			while (str[i] && str[i] != c)
+				i++;
+			result[j++] = ft_strndup(&str[start], i - start);
 		}
-		i++;
+		else
+			i++;
 	}
-	return (strs);
+	result[j] = NULL;
+	return (result);
 }
-
-/*
-int	main(int argc, char **argv)
-{
-	char	**strs;
-	int		i;
-
-	// ft_split: Recebe um string e divide ela em outras arrays
-	// levando em consideracao o separador fornecido.
-	strs = ft_split("Hello, World!", ' ');
-	i = 0;
-	while (strs[i] != NULL)
-	{
-		printf("ft_split(%s): %s\n", "Hello, World!", strs[i]);
-		i++;
-	}
-	return (0);
-}
-*/

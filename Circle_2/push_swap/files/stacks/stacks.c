@@ -6,11 +6,10 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 22:26:29 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/13 01:39:28 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/02/13 21:33:03 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/stacks.h"
 #include "../../includes/push_swap.h"
 
 node *create_node(int nbr)
@@ -67,7 +66,7 @@ void init_stack_a(node **stack_a, char **argv)
     {
         if(erro_syntax(argv[i]))
             free_errors(stack_a);
-        n = ft_atol(argv[i]);
+        n = ft_atol(argv[i]); // Converte o str para int long
         if (n > INT_MAX || n < INT_MIN)
             free_errors(stack_a);
         if (error_duplicate(*stack_a, (int)n))

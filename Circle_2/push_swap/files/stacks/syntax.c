@@ -6,14 +6,11 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 01:23:55 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/13 01:46:05 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/02/13 21:32:55 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-#include "../../includes/stacks.h"
-#include <stdlib.h>
-#include <limits.h>
 
 void	free_errors(node **stack_a)
 {
@@ -63,8 +60,6 @@ bool	erro_syntax(const char *str)
 		return (true);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	if (!str[i]) 
-		return (true);
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
@@ -85,7 +80,6 @@ void	add_node(node **stack, int value)
 	new_node->nbr = value;
 	new_node->next = NULL;
 	new_node->prev = NULL;
-
 	if (!*stack)
 		*stack = new_node;
 	else
@@ -110,4 +104,3 @@ bool error_duplicate(node *stack_a, int nbr)
     }
     return false; // Nenhum número duplicado
 }
-
