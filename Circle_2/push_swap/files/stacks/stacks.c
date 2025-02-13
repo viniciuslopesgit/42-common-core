@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 22:26:29 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/12 23:57:52 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/02/13 01:39:28 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,54 @@ node *create_node(int nbr)
     return new_node;
 }
 
+static void append_node(node **stack_a, int nbr)
+{
+    node *new_node = create_node(nbr);
+    node *last_node;
+
+    if (!new_node)
+    {
+        while (*stack_a) // Libera memória em caso de erro
+        {
+            node *temp = *stack_a;
+            *stack_a = (*stack_a)->next;
+            free(temp);
+        }
+        return;
+    }
+
+    if (*stack_a == NULL) // Se a pilha estiver vazia, adiciona o primeiro nó
+    {
+        *stack_a = new_node;
+    }
+    else
+    {
+        last_node = *stack_a;
+        while (last_node->next) // Encontra o último nó
+            last_node = last_node->next;
+        last_node->next = new_node; // Liga o último nó ao novo nó
+        new_node->prev = last_node;
+    }
+}
+
 void init_stack_a(node **stack_a, char **argv)
 {
-    int i = 0;
-    node *new_node;
-    node *last_node = NULL;
+    long    n;
+    int     i;
 
-    while (argv[i])
+    i = 0;
+    while(argv[i])
     {
-        int nbr = ft_atoi(argv[i]);
-        new_node = create_node(nbr);
-        if (!new_node)
-        {
-            while (*stack_a) // Se a alocacao falhar, libera a memoria previamente alocada
-            {
-                node *temp = *stack_a;     // Guarda o ponteiro do no atual
-                *stack_a = (*stack_a)->next; // Move o ponteiro da pilha para o proximo no
-                free(temp);                  // libera memoria
-            }
-            return;
-        }
-        if (*stack_a == NULL)
-            *stack_a = new_node;
-        else
-        {
-            last_node->next = new_node;  // O no anterior aponta para o novo no
-            last_node->prev = last_node; // O novo no aponta para o anterior
-        }
-        last_node = new_node; // Atualiza o utimo no inserido
+        if(erro_syntax(argv[i]))
+            free_errors(stack_a);
+        n = ft_atol(argv[i]);
+        if (n > INT_MAX || n < INT_MIN)
+            free_errors(stack_a);
+        if (error_duplicate(*stack_a, (int)n))
+            free_errors(stack_a);
+        append_node(stack_a, (int)n);
         i++;
     }
 }
+
+

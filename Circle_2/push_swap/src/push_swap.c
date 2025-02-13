@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:43:49 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/12 23:45:39 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/02/13 01:58:41 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1 || argc ==2 && !argv[1][0])
+	if (argc == 1 || argc == 2 && !argv[1][0])
 		return (1);
-	else if (argc == 2)
+	else if (argc == 2 && argv[1][0])
 		argv = ft_split(argv[1], ' ');
 	init_stack_a(&a, argv + 1); // argv + 1 para ignorar o nome do programa argv[0]
 	node *current = a; // Ponteiro para o topo da pilha
@@ -37,6 +37,8 @@ int	main(int argc, char **argv)
 		a = a->next;
 		free(current);
 	}
+	ft_printf("_ _\n");
+	ft_printf("a b\n\n");
 
 	return (0);
 }
