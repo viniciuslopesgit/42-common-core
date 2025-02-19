@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:43:49 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/14 19:08:20 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/19 22:48:36 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	main(int argc, char **argv)
 {
 	node	*a;
-	// node	*b;
+	node	*b;
 
 	a = NULL;
-	// b = NULL;
+	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
@@ -26,26 +26,47 @@ int	main(int argc, char **argv)
 	else
 		argv = argv + 1; // argv + 1 para ignorar o nome do programa argv[0]
 	init_stack_a(&a, argv);
-	node *current = a; // Ponteiro para o topo da pilha
+	node *current_a = a; // Ponteiro para o topo da pilha
+	node *current_b = b;
 	if (!is_sorted(a))
-        ft_printf("Nao esta ordenado\n\n");
+    {   ft_printf("Nao esta ordenado\n\n");
+		
+		pb(&a, &b);
+		swap_a(&a);
+	}
 	else
         ft_printf("Esta ordenado\n\n");
 	
-	
-	while (current) // Impreme stacks 'a' e 'b'
+	current_a = a;
+	current_b = b;
+	while (current_a || current_b) // Enquanto pelo menos uma pilha tiver elementos
 	{
-		ft_printf("%d\n", current->nbr);
-		current = current->next;
+		if (current_a) // Se houver elementos em 'a', imprime
+		{
+			ft_printf("%d ", current_a->nbr);
+			current_a = current_a->next;
+		}
+		else
+			ft_printf("  "); // Espaço para alinhar caso 'a' tenha menos elementos que 'b'
+
+		if (current_b) // Se houver elementos em 'b', imprime
+		{
+			ft_printf("%d", current_b->nbr);
+			current_b = current_b->next;
+		}
+
+		ft_printf("\n"); // Quebra de linha após imprimir uma linha da pilha
 	}
-	while (a) // Liberar memoria apos o uso
-	{
-		node *current = a; // Ponteiro para o topo da pilha
-		a = a->next;
-		free(current);
-	}
+
 	ft_printf("_ _\n");
 	ft_printf("a b\n\n");
+
+	while (a) // Liberar memoria apos o uso
+	{
+		node *current_a = a; // Ponteiro para o topo da pilha
+		a = a->next;
+		free(current_a);
+	}
 
 	return (0);
 }

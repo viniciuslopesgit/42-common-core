@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+         #
+#    By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 22:08:42 by vilopes           #+#    #+#              #
-#    Updated: 2025/02/13 23:01:18 by vilopes          ###   ########.fr        #
+#    Updated: 2025/02/19 22:32:38 by viniciuslop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ LIBFT_DIR = files/libft/
 STACK_DIR = files/stacks/
 
 COMMANDS = $(COMMA_DIR)is_sorted.c \
-           $(COMMA_DIR)swap.c
+           $(COMMA_DIR)swap_a.c \
+		   $(COMMA_DIR)push.c
 
 PUSH_SWAP = $(LIBFT_DIR)ft_atoi.c \
             $(LIBFT_DIR)ft_numbers.c \
