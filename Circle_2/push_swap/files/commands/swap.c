@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_a.c                                           :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 22:04:31 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/19 22:09:03 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/19 23:08:42 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void    swap_a(node **stack)
+static  void    swap(node **stack)
 {
     node *first;
     node *second;
@@ -30,4 +30,16 @@ void    swap_a(node **stack)
     first->prev = second;
 
     *stack = second; 
+}
+
+void sa(node **a)
+{
+    swap(a);
+    // ft_printf("sa\n");
+}
+
+void sb(node **b)
+{
+    swap(b);
+    // ft_printf("sb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:44:25 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/19 22:36:44 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/19 23:02:42 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ bool    error_duplicate(node *stack_a, int nbr);
 void    init_stack_a(node **stack_a, char **argv);
 // Commands
 bool    is_sorted(node *stack);
-void    swap_a(node **stack);
 void    pa(node **a, node **b);
 void    pb(node **a, node **b);
+void    sa(node **a);
+void    sb(node **b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:43:49 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/19 22:48:36 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/19 23:14:45 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,24 @@ int	main(int argc, char **argv)
 	else
 		argv = argv + 1; // argv + 1 para ignorar o nome do programa argv[0]
 	init_stack_a(&a, argv);
+
+	///////////////////////////////////////////////////////////
+	//						 OPERAÇÕES 						 //
+	///////////////////////////////////////////////////////////
+	
+	if (!is_sorted(a))
+		ft_printf("Nao esta ordenado\n\n");
+	else
+		ft_printf("Esta ordenado\n\n");
+
+	pb(&a, &b);
+	sa(&a);
+	
+	///////////////////////////////////////////////////////////
+	//						DEBUG PRINTF 					 //
+	///////////////////////////////////////////////////////////
 	node *current_a = a; // Ponteiro para o topo da pilha
 	node *current_b = b;
-	if (!is_sorted(a))
-    {   ft_printf("Nao esta ordenado\n\n");
-		
-		pb(&a, &b);
-		swap_a(&a);
-	}
-	else
-        ft_printf("Esta ordenado\n\n");
 	
 	current_a = a;
 	current_b = b;
@@ -47,27 +55,27 @@ int	main(int argc, char **argv)
 			current_a = current_a->next;
 		}
 		else
-			ft_printf("  "); // Espaço para alinhar caso 'a' tenha menos elementos que 'b'
-
+			ft_printf("	"); // Espaço para alinhar caso 'a' tenha menos elementos que 'b'
 		if (current_b) // Se houver elementos em 'b', imprime
 		{
 			ft_printf("%d", current_b->nbr);
 			current_b = current_b->next;
 		}
-
 		ft_printf("\n"); // Quebra de linha após imprimir uma linha da pilha
 	}
 
 	ft_printf("_ _\n");
 	ft_printf("a b\n\n");
 
+	///////////////////////////////////////////////////////////
+	//						FREE MEMORY 					 //
+	///////////////////////////////////////////////////////////
 	while (a) // Liberar memoria apos o uso
 	{
 		node *current_a = a; // Ponteiro para o topo da pilha
 		a = a->next;
 		free(current_a);
 	}
-
 	return (0);
 }
 
