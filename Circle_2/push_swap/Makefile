@@ -6,7 +6,7 @@
 #    By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 22:08:42 by vilopes           #+#    #+#              #
-#    Updated: 2025/02/19 22:58:09 by viniciuslop      ###   ########.fr        #
+#    Updated: 2025/02/20 01:23:04 by viniciuslop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,15 +20,19 @@ STACK_DIR = files/stacks/
 
 COMMANDS = $(COMMA_DIR)is_sorted.c \
            $(COMMA_DIR)swap.c \
-		   $(COMMA_DIR)push.c
-
+		   $(COMMA_DIR)push.c \
+		   $(COMMA_DIR)rotate.c \
+		   $(COMMA_DIR)reverse_rotate.c \
+		   $(COMMA_DIR)sort.c
+		   
 PUSH_SWAP = $(LIBFT_DIR)ft_atoi.c \
             $(LIBFT_DIR)ft_numbers.c \
             $(LIBFT_DIR)ft_printf.c \
             $(LIBFT_DIR)ft_split.c \
             $(LIBFT_DIR)ft_strs.c \
             $(STACK_DIR)stacks.c \
-            $(STACK_DIR)syntax.c
+            $(STACK_DIR)syntax.c \
+            $(STACK_DIR)stack_utils.c \
 
 MAIN = src/push_swap.c
 

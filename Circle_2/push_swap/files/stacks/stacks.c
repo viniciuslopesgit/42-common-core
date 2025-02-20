@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 22:26:29 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/13 21:33:03 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/02/20 00:52:29 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,16 @@ void init_stack_a(node **stack_a, char **argv)
     }
 }
 
-
+int stack_len(node *stack)
+{
+    int len;
+    if (!stack)
+        return (0);
+    len = 0;
+    while (stack)
+    {
+        stack = stack->next;
+        len++;
+    }
+    return (len);
+}

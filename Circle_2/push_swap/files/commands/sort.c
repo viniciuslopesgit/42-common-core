@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacks.h                                           :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 22:24:25 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/20 00:35:57 by viniciuslop      ###   ########.fr       */
+/*   Created: 2025/02/20 00:44:25 by viniciuslop       #+#    #+#             */
+/*   Updated: 2025/02/20 01:20:32 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACKS_H
-# define STACKS_H
+#include "../../includes/push_swap.h"
 
-#include "push_swap.h"
-
-void    init_stack_a(node **stack_a, char **argv);
-void	free_errors(node **stack_a);
-long	ft_atol(const char *str);
-bool	erro_syntax(const char *str);
-void	add_node(node **stack, int value);
-bool    error_duplicate(node *stack_a, int nbr);
-int     stack_len(node *stack);
-
-#endif
+void    sort_three(node **a)
+{
+    node   *big_node; // Guarda o ponteiro de 'a'
+    big_node = find_max(*a);
+    if (big_node == *a)
+        ra(a, true); //falta a bool como false;
+    else if ((*a)->next == big_node)
+        rra(a, true);
+    if ((*a)->nbr > (*a)->next->nbr)
+        sa(a, true);
+}

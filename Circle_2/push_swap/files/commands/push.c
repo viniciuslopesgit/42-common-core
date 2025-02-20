@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 22:04:52 by viniciuslop       #+#    #+#             */
-/*   Updated: 2025/02/19 22:46:51 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/20 01:02:27 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ static void push(node **from, node **to)
     *to = temp; // Atualiza o topo da pilha 'to'
 }
 
-void pa(node **a, node **b)
+void pa(node **a, node **b, bool print)
 {
     push(b, a);
-    // ft_printf("pa\n");
+    if (print)
+        ft_printf("pa\n");
 }
 
-void pb(node **a, node **b)
+void pb(node **a, node **b, bool print)
 {
     push(a, b);
-    // ft_printf("pb\n");
+    if (print)
+        ft_printf("pb\n");
 }

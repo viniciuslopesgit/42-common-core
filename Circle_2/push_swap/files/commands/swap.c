@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 22:04:31 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/19 23:08:42 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/20 01:11:50 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,24 @@ static  void    swap(node **stack)
     *stack = second; 
 }
 
-void sa(node **a)
+void sa(node **a, bool print)
 {
     swap(a);
-    // ft_printf("sa\n");
+    if (print)
+        ft_printf("sa\n");
 }
 
-void sb(node **b)
+void sb(node **b, bool print)
 {
     swap(b);
-    // ft_printf("sb\n");
+    if (print)
+        ft_printf("sb\n");
+}
+
+void ss(node **a, node **b, bool print)
+{
+    swap(a);
+    swap(b);
+    if (print)
+        ft_printf("ss\n");
 }

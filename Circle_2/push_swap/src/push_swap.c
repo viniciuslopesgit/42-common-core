@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:43:49 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/19 23:14:45 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/20 01:18:24 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	main(int argc, char **argv)
 {
 	node	*a;
-	node	*b;
+	// node	*b;
 
 	a = NULL;
-	b = NULL;
+	// b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
@@ -32,40 +32,40 @@ int	main(int argc, char **argv)
 	///////////////////////////////////////////////////////////
 	
 	if (!is_sorted(a))
-		ft_printf("Nao esta ordenado\n\n");
-	else
-		ft_printf("Esta ordenado\n\n");
-
-	pb(&a, &b);
-	sa(&a);
+	{
+		if (stack_len(a) == 2)
+			sa(&a, true);
+		else if (stack_len(a) == 3)
+			sort_three(&a);
+	}
 	
 	///////////////////////////////////////////////////////////
 	//						DEBUG PRINTF 					 //
 	///////////////////////////////////////////////////////////
-	node *current_a = a; // Ponteiro para o topo da pilha
-	node *current_b = b;
+	// node *current_a = a; // Ponteiro para o topo da pilha
+	// node *current_b = b;
 	
-	current_a = a;
-	current_b = b;
-	while (current_a || current_b) // Enquanto pelo menos uma pilha tiver elementos
-	{
-		if (current_a) // Se houver elementos em 'a', imprime
-		{
-			ft_printf("%d ", current_a->nbr);
-			current_a = current_a->next;
-		}
-		else
-			ft_printf("	"); // Espaço para alinhar caso 'a' tenha menos elementos que 'b'
-		if (current_b) // Se houver elementos em 'b', imprime
-		{
-			ft_printf("%d", current_b->nbr);
-			current_b = current_b->next;
-		}
-		ft_printf("\n"); // Quebra de linha após imprimir uma linha da pilha
-	}
+	// current_a = a;
+	// current_b = b;
+	// while (current_a || current_b) // Enquanto pelo menos uma pilha tiver elementos
+	// {
+	// 	if (current_a) // Se houver elementos em 'a', imprime
+	// 	{
+	// 		ft_printf("%d ", current_a->nbr);
+	// 		current_a = current_a->next;
+	// 	}
+	// 	else
+	// 		ft_printf("	"); // Espaço para alinhar caso 'a' tenha menos elementos que 'b'
+	// 	if (current_b) // Se houver elementos em 'b', imprime
+	// 	{
+	// 		ft_printf("%d", current_b->nbr);
+	// 		current_b = current_b->next;
+	// 	}
+	// 	ft_printf("\n"); // Quebra de linha após imprimir uma linha da pilha
+	// }
 
-	ft_printf("_ _\n");
-	ft_printf("a b\n\n");
+	// ft_printf("_ _\n");
+	// ft_printf("a b\n\n");
 
 	///////////////////////////////////////////////////////////
 	//						FREE MEMORY 					 //
