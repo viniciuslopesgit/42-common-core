@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:44:25 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/20 01:14:40 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/23 21:04:33 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,17 @@ typedef struct node
 
 // Handle erros
 void	free_errors(node **stack_a);
-long	ft_atol(const char *str);
 bool	erro_syntax(const char *str);
 void	add_node(node **stack, int value);
 bool    error_duplicate(node *stack_a, int nbr);
 
 // Stack
+node    *create_node(int nbr);
 void    init_stack_a(node **stack_a, char **argv);
-int     stack_len(node *stack);
-// Commands
 bool    is_sorted(node *stack);
+int     stack_len(node *stack);
+node	*find_last(node *stack);
+// Commands
 void    sa(node **a, bool print);
 void    sb(node **b, bool print);
 void    ss(node **a, node **b, bool print);
@@ -52,6 +53,7 @@ void    rrr(node **a, node **b, bool print);
 // Sorted
 void    sort_three(node **a);
 node	*find_max(node *stack);
+
 
 
 #endif

@@ -6,9 +6,10 @@
 #    By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 22:08:42 by vilopes           #+#    #+#              #
-#    Updated: 2025/02/20 01:23:04 by viniciuslop      ###   ########.fr        #
+#    Updated: 2025/02/23 20:57:30 by viniciuslop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME = push_swap
 CC = cc

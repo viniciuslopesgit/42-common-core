@@ -6,11 +6,21 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 00:53:02 by viniciuslop       #+#    #+#             */
-/*   Updated: 2025/02/20 01:19:16 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/23 20:34:15 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+node	*find_last(node *stack) //Define a function that returns the pointer to the last node
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next) //Loop until the end of the stack is reached
+		stack = stack->next;
+	return (stack);
+}
+
 
 node	*find_max(node *stack) //Define a function that searches a stack and returns the node with the biggest number
 {

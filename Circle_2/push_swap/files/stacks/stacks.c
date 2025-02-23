@@ -6,25 +6,42 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 22:26:29 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/20 00:52:29 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/23 21:03:53 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-node *create_node(int nbr)
+long ft_atol(const char *str)
 {
-    node *new_node = (node *)malloc(sizeof(node)); // Aloca memoria para cada no
-    if (!new_node)
+    long result = 0;
+    int sign = 1;
+    int i = 0;
+
+    while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)) // Ignora espaços e caracteres de controle
+        i++;
+
+    if (str[i] == '-' || str[i] == '+') // Lida com o sinal
     {
-        return NULL;
-        ft_printf("create_node: erro");
+        if (str[i] == '-')
+            sign = -1;
+        i++;
     }
-    new_node->nbr = nbr;
-    new_node->next = NULL;
-    new_node->prev = NULL;
-    return new_node;
+
+    while (str[i] >= '0' && str[i] <= '9') // Converte os caracteres numéricos
+    {
+        if (result > LONG_MAX / 10 || (result == LONG_MAX / 10 && str[i] - '0' > LONG_MAX % 10)) 
+        {
+            // Verifica se o próximo passo causaria overflow
+            return (sign == 1) ? LONG_MAX : LONG_MIN;
+        }
+        result = result * 10 + (str[i] - '0');
+        i++;
+    }
+
+    return result * sign;
 }
+
 
 static void append_node(node **stack_a, int nbr)
 {
@@ -54,6 +71,20 @@ static void append_node(node **stack_a, int nbr)
         last_node->next = new_node; // Liga o último nó ao novo nó
         new_node->prev = last_node;
     }
+}
+
+node *create_node(int nbr)
+{
+    node *new_node = (node *)malloc(sizeof(node)); // Aloca memoria para cada no
+    if (!new_node)
+    {
+        return NULL;
+        ft_printf("create_node: erro");
+    }
+    new_node->nbr = nbr;
+    new_node->next = NULL;
+    new_node->prev = NULL;
+    return new_node;
 }
 
 void init_stack_a(node **stack_a, char **argv)
