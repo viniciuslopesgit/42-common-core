@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:44:25 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/23 21:04:33 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/23 22:21:40 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,14 @@
 
 typedef struct node
 {
-    int     nbr;
-    struct node *next;
-    struct node *prev;
+	int					nbr; //The number to sort
+	int					index; //The number's position in the stack
+	int					push_cost; //How many commands in total
+	bool				above_median; //Used to calculate `push_cost`
+	bool				cheapest; //The node that is the cheapest to do commands
+	struct node	        *target_node; //The target node of a node in the opposite stack
+	struct node	        *next; //A pointer to the next node
+	struct node	        *prev; //A pointer to the previous node
 } node;
 
 // Handle erros
@@ -33,11 +38,22 @@ void	add_node(node **stack, int value);
 bool    error_duplicate(node *stack_a, int nbr);
 
 // Stack
+bool    is_sorted(node *stack);
 node    *create_node(int nbr);
 void    init_stack_a(node **stack_a, char **argv);
-bool    is_sorted(node *stack);
 int     stack_len(node *stack);
 node	*find_last(node *stack);
+node	*find_min(node *stack);
+node	*find_max(node *stack);
+
+// Nodes
+void	init_nodes_a(node *a, node *b);
+void	init_nodes_b(node *a, node *b);
+void	current_index(node *stack);
+node	*get_cheapest(node *stack);
+void	prep_for_push(node **stack, node *top_node, char stack_name); //Define a function that moves the required node to the top of the stack
+
+
 // Commands
 void    sa(node **a, bool print);
 void    sb(node **b, bool print);
@@ -50,9 +66,10 @@ void    rr(node **a, node **b, bool print);
 void    rra(node **a, bool print);
 void    rrb(node **b, bool print);
 void    rrr(node **a, node **b, bool print);
+
 // Sorted
 void    sort_three(node **a);
-node	*find_max(node *stack);
+void	sort_stacks(node **a, node **b);
 
 
 

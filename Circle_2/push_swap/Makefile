@@ -6,7 +6,7 @@
 #    By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 22:08:42 by vilopes           #+#    #+#              #
-#    Updated: 2025/02/23 20:57:30 by viniciuslop      ###   ########.fr        #
+#    Updated: 2025/02/23 22:21:59 by viniciuslop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,11 @@ COMMA_DIR = files/commands/
 LIBFT_DIR = files/libft/
 STACK_DIR = files/stacks/
 
-COMMANDS = $(COMMA_DIR)is_sorted.c \
-           $(COMMA_DIR)swap.c \
+COMMANDS = $(COMMA_DIR)swap.c \
 		   $(COMMA_DIR)push.c \
 		   $(COMMA_DIR)rotate.c \
 		   $(COMMA_DIR)reverse_rotate.c \
-		   $(COMMA_DIR)sort.c
+		   $(STACK_DIR)sort.c
 		   
 PUSH_SWAP = $(LIBFT_DIR)ft_atoi.c \
             $(LIBFT_DIR)ft_numbers.c \
@@ -34,6 +33,8 @@ PUSH_SWAP = $(LIBFT_DIR)ft_atoi.c \
             $(STACK_DIR)stacks.c \
             $(STACK_DIR)syntax.c \
             $(STACK_DIR)stack_utils.c \
+			$(STACK_DIR)init_a_to_b.c \
+			$(STACK_DIR)init_b_to_a.c
 
 MAIN = src/push_swap.c
 

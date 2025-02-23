@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:43:49 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/23 21:37:36 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/23 22:24:16 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	main(int argc, char **argv)
 	else
 	init_stack_a(&a, argv + 1);
 
-	// ///////////////////////////////////////////////////////////
-	// //						DEBUG PRINTF 					 //
-	// ///////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////
+	//						DEBUG PRINTF 					 //
+	///////////////////////////////////////////////////////////
 	// ft_printf("✅ Iniciando sa\n");
 	// sa(&a, false);
 	// imprime(a, b);
@@ -99,14 +99,18 @@ int	main(int argc, char **argv)
 		}
 		else if (stack_len(a) == 3)
 		{
-			ft_printf("🔁 sa\n");
+			ft_printf("✅ Sort three\n");
 			sort_three(&a);
 		}
 		else
-			sort
+		{
+			ft_printf("✅ Sort Turk\n");
+			sort_stacks(&a, &b);
+		}
+			
 	}
 	
-
+	imprime(a, b);
 	
 	///////////////////////////////////////////////////////////
 	//						FREE MEMORY 					 //
