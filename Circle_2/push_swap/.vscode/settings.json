@@ -4,6 +4,7 @@
         "limits.h": "c",
         "stdlib.h": "c",
         "algorithm": "c",
-        "__node_handle": "c"
+        "__node_handle": "c",
+        "push_swap.h": "c"
     }
 }
