@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 22:26:29 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/23 22:19:17 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/24 01:52:57 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,37 +39,39 @@ long ft_atol(const char *str)
         i++;
     }
 
+    // Certifique-se de que não há caracteres não numéricos após o número
+    if (str[i] != '\0' && (str[i] < '0' || str[i] > '9')) 
+        return 0; // Ou algum valor de erro que você possa tratar
+
     return result * sign;
 }
 
-
-static void append_node(node **stack_a, int nbr)
+static void append_node(node **stack, int n) // Define a function that searches for the last node to append to the linked list
 {
-    node *new_node = create_node(nbr);
-    node *last_node;
+    node *new_node; // To store a pointer to the new node to be created with the value `n`
+    node *last_node; // To store a pointer to the current last node of the stack
 
+    if (!stack)
+        return ;
+    
+    new_node = malloc(sizeof(node)); // Allocate memory for the new node
     if (!new_node)
-    {
-        while (*stack_a) // Libera memória em caso de erro
-        {
-            node *temp = *stack_a;
-            *stack_a = (*stack_a)->next;
-            free(temp);
-        }
         return;
-    }
+    new_node->next = NULL; // Set the next pointer of the new node to NULL because it will be the last node in the list
+    new_node->nbr = n; // Set the `nbr` data of the new node to `n` value
+    new_node->cheapest = 0; // Initialize cheapest to 0
 
-    if (*stack_a == NULL) // Se a pilha estiver vazia, adiciona o primeiro nó
+    // other elements in the struct could be initialized as well but for now, this was the only one causing a valgrind issue
+    if (!(*stack)) // Check if the stack is empty or currently pointing to NULL, indicating a first node needs to be found
     {
-        *stack_a = new_node;
+        *stack = new_node; // If empty, update the pointer *stack to point to the node, effectively making it the new head of the linked list
+        new_node->prev = NULL; // Set the head node's previous pointer to NULL as it's the first node
     }
-    else
+    else // If the stack is not empty, it means there are existing nodes in the linked list
     {
-        last_node = *stack_a;
-        while (last_node->next) // Encontra o último nó
-            last_node = last_node->next;
-        last_node->next = new_node; // Liga o último nó ao novo nó
-        new_node->prev = last_node;
+        last_node = find_last(*stack); // In which case, find the last node
+        last_node->next = new_node; // Append the new node to the last node
+        new_node->prev = last_node; // Update the previous pointer of the new node and complete the appending
     }
 }
 
@@ -95,7 +97,7 @@ void init_stack_a(node **stack_a, char **argv)
     i = 0;
     while(argv[i])
     {
-        if(erro_syntax(argv[i]))
+        if(error_syntax(argv[i]))
             free_errors(stack_a);
         n = ft_atol(argv[i]); // Converte o str para int long
         if (n > INT_MAX || n < INT_MIN)
@@ -143,16 +145,16 @@ void	prep_for_push(node **stack,
 		if (stack_name == 'a') //If not, and it is stack `a`, execute the following
 		{
 			if (top_node->above_median)
-				ra(stack, false);
+				ra(stack, true);
 			else
-				rra(stack, false);
+				rra(stack, true);
 		}
 		else if (stack_name == 'b') //If not, and it is stack `b`, execute the following
 		{
 			if (top_node->above_median)
-				rb(stack, false);
+				rb(stack, true);
 			else
-				rrb(stack, false);
+				rrb(stack, true);
 		}	
 	}
 }

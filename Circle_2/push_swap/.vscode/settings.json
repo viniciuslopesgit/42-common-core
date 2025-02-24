@@ -2,6 +2,8 @@
     "files.associations": {
         "random": "c",
         "limits.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "algorithm": "c",
+        "__node_handle": "c"
     }
 }

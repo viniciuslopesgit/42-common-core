@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:44:25 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/23 22:21:40 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/24 01:52:53 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,14 @@ typedef struct node
 	struct node	        *prev; //A pointer to the previous node
 } node;
 
+// DEBUG
+void imprime(node *a, node *b);
+
 // Handle erros
-void	free_errors(node **stack_a);
-bool	erro_syntax(const char *str);
-void	add_node(node **stack, int value);
-bool    error_duplicate(node *stack_a, int nbr);
+int	    error_syntax(char *str_n);
+int	    error_duplicate(node *a, int n);
+void	free_stack(node **stack);
+void	free_errors(node **a);
 
 // Stack
 bool    is_sorted(node *stack);
@@ -45,6 +48,7 @@ int     stack_len(node *stack);
 node	*find_last(node *stack);
 node	*find_min(node *stack);
 node	*find_max(node *stack);
+void	free_stack(node **stack);
 
 // Nodes
 void	init_nodes_a(node *a, node *b);

@@ -6,7 +6,7 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 22:02:23 by viniciuslop       #+#    #+#             */
-/*   Updated: 2025/02/23 22:03:26 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/24 01:47:17 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,19 @@ static void	set_target_a(node *a, node *b)//Find `a` node's target in stack `b`
 			current_b = current_b->next; //Move to the next `b` node for comparison, until a "closer smaller number" is found
 		}
 		if (best_match_index == LONG_MIN) //Check if the LONG_MIN hasn't changed, it means we haven't found anything smaller
+		{
+			ft_printf("find_max OK\n");	
 			a->target_node = find_max(b); //If so, find the biggest `nbr` and set this as the target node
+		}
 		else
+		{
+			ft_printf("find_max OK\n");	
 			a->target_node = target_node; //If no "closer smaller number" is found, and the best match has changed
+		}
 		a = a->next; //Move to the next `a` node to find it's target `b` node
 	}
 }
+
 
 static void	cost_analysis_a(node *a, node *b) //Define a functio that analyses the cost of the `a` node along with it's target `b` node, which is the sum of the number of instructions for both the nodes to rotate to the top of their stacks
 {
@@ -70,6 +77,21 @@ static void	cost_analysis_a(node *a, node *b) //Define a functio that analyses t
 	len_b = stack_len(b);
 	while (a) //Loop through each node until the end of the stack is reached
 	{
+		// 🚨 Verifica se `a->target_node` está NULL
+		if (!a->target_node)
+		{
+			return;
+		}
+
+		// 🚨 Verifica se `a->target_node->index` é válido
+		if (a->target_node->index < 0)
+		{
+			return;
+		}
+
+		// ft_printf("🔹 Analisando a->nbr = %d | target_node->nbr = %d | target_index = %d\n",
+			// a->nbr, a->target_node->nbr, a->target_node->index);
+			
 		a->push_cost = a->index; //Assign the current `a` node's push cost, its' index value
 		if (!(a->above_median)) //Check if the above_median data is false, meaning it is below median
 			a->push_cost = len_a - (a->index); //If so, update `a` node's push cost to the stack's length - index
@@ -87,7 +109,7 @@ void	set_cheapest(node *stack) //Define a function that sets a node's `cheapest`
 	node	*cheapest_node; //To store a pointer to the cheapest node so far
 
 	if (!stack) //Check for an empty stack
-		return ;
+		return;
 	cheapest_value = LONG_MAX; //Assign the biggest `long` as the cheapest value so far
 	while (stack) //Loop through every node until the end of the stack is reached, and we find the cheapest node
 	{
@@ -101,9 +123,8 @@ void	set_cheapest(node *stack) //Define a function that sets a node's `cheapest`
 	cheapest_node->cheapest = true; //After iterating through the stack, if no cheaper node is found than the current, then set the cheapest node's `cheapest` attribut to `true` in the data structure
 }
 
-void	init_nodes_a(node *a, node *b) //Define a function that combines all the functions needed to prepare stack `a`, ready for our pushing and sorting. These functions set the data inside the node's structure
+void	init_nodes_a(node *a, node *b)
 {
-	current_index(a);
 	current_index(b);
 	set_target_a(a, b);
 	cost_analysis_a(a, b);

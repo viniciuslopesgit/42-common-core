@@ -6,76 +6,64 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 01:23:55 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/23 21:01:20 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/24 01:49:31 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	free_errors(node **stack_a)
+int	error_syntax(char *str_n) //Define a funtion to handle syntax errors, and returns `1` for `error` should any of the following conditions are met
 {
-	node *temp;
-
-	while (*stack_a)
+	if (!(*str_n == '+'
+			|| *str_n == '-'
+			|| (*str_n >= '0' && *str_n <= '9'))) //Check if the first character of the input string does not contain a sign or a digit
+		return (1);
+	if ((*str_n == '+'
+			|| *str_n == '-')
+		&& !(str_n[1] >= '0' && str_n[1] <= '9')) //Check if the first character of the input string contains a sign, but the second character does not contain a digit
+		return (1);
+	while (*++str_n) //If the error conditions above are passed, pre-increment to point to the next character in the string, and loop until the end of the string is reached
 	{
-		temp = *stack_a;
-		*stack_a = (*stack_a)->next;
-		free(temp);
+		if (!(*str_n >= '0' && *str_n <= '9')) //Check if the next character in the string is not a digit
+			return (1);
 	}
-	write(2, "Error\n", 6);
-	exit(1);
+	return (0);
 }
 
-bool	erro_syntax(const char *str)
+int	error_duplicate(node *a, int n) //Define a function that checks for duplicate input numbers in stack `a`
 {
-	int	i;
-
-	i = 0;
-	if (!str[i])
-		return (true);
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (true);
-		i++;
-	}
-	return (false);
-}
-
-void	add_node(node **stack, int value)
-{
-	node *new_node;
-	node *temp;
-
-	new_node = (node *)malloc(sizeof(node));
-	if (!new_node)
-		free_errors(stack);
-	new_node->nbr = value;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	if (!*stack)
-		*stack = new_node;
-	else
-	{
-		temp = *stack;
-		while (temp->next)
-			temp = temp->next;
-		temp->next = new_node;
-		new_node->prev = temp;
-	}
-}
-
-bool error_duplicate(node *stack_a, int nbr)
-{
-	if (!stack_a)
+	if (!a) //Check for an empty stack
 		return (0);
-    while (stack_a)
-    {
-        if (stack_a->nbr == nbr)
-            return true; // Número duplicado encontrado
-        stack_a = stack_a->next;
-    }
-    return false; // Nenhum número duplicado
+	while (a) //Loop until the end of stack `a` is reached
+	{
+		if (a->nbr == n) //Check if the current node's value is equal to `n`. Refer to `init_stack_a()`
+			return (1);
+		a = a->next; //Move to the next node to check for duplicates
+	}
+	return (0);
+}
+
+void	free_stack(node **stack) //Define a function to free a stack if there are errors
+{
+	node	*tmp; //To store the next node in the stack before the current node is freed, because once a node is freed, you can't access its next pointer
+	node	*current;
+
+	if (!stack) //Check for an empty stack
+		return ;
+	current = *stack;
+	while (current) //As long as a node exist in the stack
+	{
+		tmp = current->next; //Assign to `tmp` the pointer to the next node
+		current->nbr = 0; //Assigning the node to `0` before freeing is not strictly necessary but it can help catch potential bugs such as memory-leaks and improve debugging
+		free(current); //Free the current node, deallocating the memory occupied by that node
+		current = tmp; //Assign `tmp` as the current first node
+	}
+	*stack = NULL;
+}
+
+void	free_errors(node **a) //Define a function that, upon encountering a unique error, to free the stack and print an error message
+{
+	free_stack(a);
+	ft_printf("Error\n");
+	exit(1);
 }
