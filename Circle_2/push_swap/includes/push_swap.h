@@ -3,79 +3,74 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:44:25 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/24 02:46:00 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/25 01:34:04 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdbool.h>
-# include <limits.h>
-# include <stdlib.h>
 # include "ft_printf.h"
 # include "libft.h"
+# include <limits.h>
+# include <stdbool.h>
+# include <stdlib.h>
 
-typedef struct node
+typedef struct t_node
 {
-	int					nbr; //The number to sort
-	int					index; //The number's position in the stack
-	int					push_cost; //How many commands in total
-	bool				above_median; //Used to calculate `push_cost`
-	bool				cheapest; //The node that is the cheapest to do commands
-	struct node	        *target_node; //The target node of a node in the opposite stack
-	struct node	        *next; //A pointer to the next node
-	struct node	        *prev; //A pointer to the previous node
-} node;
+	int				nbr;
+	int				index;
+	int				push_cost;
+	bool			above_median;
+	bool			cheapest;
+	struct t_node	*target_node;
+	struct t_node	*next;
+	struct t_node	*prev;
+}					t_node;
 
-// DEBUG
-void imprime(node *a, node *b);
-
-// Handle erros
-int	    error_syntax(char *str_n);
-int	    error_duplicate(node *a, int n);
-void	free_stack(node **stack);
-void	free_errors(node **a);
+// Erros
+long				ft_atol(const char *str);
+int					error_syntax(char *str_n);
+int					error_duplicate(t_node *a, int n);
+void				free_stack(t_node **stack);
+void				free_errors(t_node **a);
 
 // Stack
-bool    is_sorted(node *stack);
-node    *create_node(int nbr);
-void    init_stack_a(node **stack_a, char **argv);
-int     stack_len(node *stack);
-node	*find_last(node *stack);
-node	*find_min(node *stack);
-node	*find_max(node *stack);
-void	free_stack(node **stack);
+t_node				*find_last(t_node *stack);
+t_node				*find_min(t_node *stack);
+t_node				*find_max(t_node *stack);
+bool				is_sorted(t_node *stack);
+int					stack_len(t_node *stack);
+void				min_on_top(t_node **a);
+void				init_stack_a(t_node **stack_a, char **argv);
+void				free_stack(t_node **stack);
 
-// Nodes
-void	init_nodes_a(node *a, node *b);
-void	init_nodes_b(node *a, node *b);
-void	current_index(node *stack);
-node	*get_cheapest(node *stack);
-void	set_cheapest(node *stack); //Set the stack's cheapest node
-void			prep_for_push(node **s, node *n, char c); //Define a function that moves the required node to the top of the stack
-
+// t_nodes
+t_node				*get_cheapest(t_node *stack);
+void				init_nodes_a(t_node *a, t_node *b);
+void				init_nodes_b(t_node *a, t_node *b);
+void				current_index(t_node *stack);
+void				set_cheapest(t_node *stack);
+void				prep_for_push(t_node **s, t_node *n, char c);
 
 // Commands
-void    sa(node **a, bool print);
-void    sb(node **b, bool print);
-void    ss(node **a, node **b, bool print);
-void    pa(node **a, node **b, bool print);
-void    pb(node **a, node **b, bool print);
-void    ra(node **a, bool print);
-void    rb(node **b, bool print);
-void    rr(node **a, node **b, bool print);
-void    rra(node **a, bool print);
-void    rrb(node **b, bool print);
-void    rrr(node **a, node **b, bool print);
+void				sa(t_node **a, bool print);
+void				sb(t_node **b, bool print);
+void				ss(t_node **a, t_node **b, bool print);
+void				pa(t_node **a, t_node **b, bool print);
+void				pb(t_node **a, t_node **b, bool print);
+void				ra(t_node **a, bool print);
+void				rb(t_node **b, bool print);
+void				rr(t_node **a, t_node **b, bool print);
+void				rra(t_node **a, bool print);
+void				rrb(t_node **b, bool print);
+void				rrr(t_node **a, t_node **b, bool print);
 
 // Sorted
-void    sort_three(node **a);
-void	sort_stacks(node **a, node **b);
-
-
+void				sort_three(t_node **a);
+void				sort_stacks(t_node **a, t_node **b);
 
 #endif

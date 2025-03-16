@@ -3,89 +3,88 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 00:53:02 by viniciuslop       #+#    #+#             */
-/*   Updated: 2025/02/24 02:00:17 by viniciuslop      ###   ########.fr       */
+/*   Created: 2025/02/25 01:10:27 by vilopes           #+#    #+#             */
+/*   Updated: 2025/02/25 01:37:20 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int stack_len(node *stack)
+int	stack_len(t_node *stack)
 {
-    int len;
-    if (!stack)
-        return (0);
-    len = 0;
-    while (stack)
-    {
-        stack = stack->next;
-        len++;
-    }
-    return (len);
+	int	len;
+
+	if (!stack)
+		return (0);
+	len = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		len++;
+	}
+	return (len);
 }
 
-node	*find_last(node *stack) //Define a function that returns the pointer to the last node
+t_node	*find_last(t_node *stack)
 {
 	if (!stack)
 		return (NULL);
-	while (stack->next) //Loop until the end of the stack is reached
+	while (stack->next)
 		stack = stack->next;
 	return (stack);
 }
 
-bool is_sorted(node *stack)
+bool	is_sorted(t_node *stack)
 {
-    if (!stack)
-        return (1);
-    while (stack->next)
-    {
-        if (stack->nbr > stack->next->nbr)
-             return (false);
-        stack = stack->next;
-    }
-    return (true);
-}
-
-
-
-node	*find_min(node *stack) //Define a function that searches a stack and returns the node with the smallest number
-{
-	long			min; //To store the smallest value so far
-	node	*min_node; //To store a pointer that points to the smallest number
-
 	if (!stack)
-		return (NULL);
-	min = LONG_MAX; //Assign to the smallest value so far, the max long integer
-	while (stack) //Loop until the end of the stack is reached
+		return (1);
+	while (stack->next)
 	{
-		if (stack->nbr < min) //Check if the current node value is smaller than the smallest so far
-		{
-			min = stack->nbr; //If so, update the smallest number so far
-			min_node = stack; //Set the pointer to point to the node with the smallest number so far
-		}
-		stack = stack->next; //Move to the next node for processing
+		if (stack->nbr > stack->next->nbr)
+			return (false);
+		stack = stack->next;
 	}
-	return (min_node); 
+	return (true);
 }
 
-node	*find_max(node *stack) //Define a function that searches a stack and returns the node with the biggest number
+t_node	*find_min(t_node *stack)
 {
-	long			max; //To store the biggest value so far
-	node	        *max_node; //To store a pointer that points to the biggest number
+	long	min;
+	t_node	*min_node;
 
 	if (!stack)
 		return (NULL);
-	max = LONG_MIN; //Assign to the biggest value so far, the max long integer
-	while (stack) //Loop until the end of the stack is reached
+	min = LONG_MAX;
+	while (stack)
 	{
-		if (stack->nbr > max) //Check if the current node value is smaller than the biggest so far
+		if (stack->nbr < min)
 		{
-			max = stack->nbr; //If so, update the biggest number so far
-			max_node = stack; //Set the pointer to point to the node with the biggest number so far
+			min = stack->nbr;
+			min_node = stack;
 		}
-		stack = stack->next; //Move to the next node for processing
+		stack = stack->next;
+	}
+	return (min_node);
+}
+
+t_node	*find_max(t_node *stack)
+{
+	long	max;
+	t_node	*max_node;
+
+	if (!stack)
+		return (NULL);
+	max = LONG_MIN;
+	while (stack)
+	{
+		if (stack->nbr > max)
+		{
+			max = stack->nbr;
+			max_node = stack;
+		}
+		stack = stack->next;
 	}
 	return (max_node);
 }

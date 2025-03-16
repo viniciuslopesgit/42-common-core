@@ -3,13 +3,12 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+         #
+#    By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 22:08:42 by vilopes           #+#    #+#              #
-#    Updated: 2025/02/23 22:21:59 by viniciuslop      ###   ########.fr        #
+#    Updated: 2025/02/25 01:35:42 by vilopes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME = push_swap
 CC = cc
@@ -31,6 +30,7 @@ PUSH_SWAP = $(LIBFT_DIR)ft_atoi.c \
             $(LIBFT_DIR)ft_split.c \
             $(LIBFT_DIR)ft_strs.c \
             $(STACK_DIR)stacks.c \
+			$(STACK_DIR)sort_stack.c \
             $(STACK_DIR)syntax.c \
             $(STACK_DIR)stack_utils.c \
 			$(STACK_DIR)init_a_to_b.c \

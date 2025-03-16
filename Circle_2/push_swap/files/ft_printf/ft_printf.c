@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 23:06:42 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/12 23:34:24 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/02/25 00:14:46 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,30 +61,3 @@ long int	ft_printf(const char *string, ...)
 	va_end(args);
 	return (len);
 }
-/*
-int	main(void)
-{
-	char			str_char;
-	char			*str;
-	int				num1;
-	int				num2;
-	unsigned int	num3;
-
-	// char
-	str_char = 'c';
-	str = "Hello World";
-	num1 = 35;
-	num2 = -2147483648;
-	num3 = 4294967254;
-	ft_printf("char: %c\n", str_char);
-	ft_printf("str: %s\n", str);
-	ft_printf("int: %i\n", num1);
-	ft_printf("d: %d\n", num2);
-	ft_printf("p: %p\n", &num1);
-	ft_printf("u: %u\n", num3);
-	ft_printf("x: %x\n", 255);
-	ft_printf("X: %X\n", 255);
-	ft_printf("p: %p %p", 0, 0);
-	return (0);
-}
-*/

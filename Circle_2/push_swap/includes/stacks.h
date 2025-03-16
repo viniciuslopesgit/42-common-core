@@ -3,24 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   stacks.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
+/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 22:24:25 by vilopes           #+#    #+#             */
-/*   Updated: 2025/02/20 00:35:57 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/02/25 01:24:12 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACKS_H
 # define STACKS_H
 
-#include "push_swap.h"
+# include "push_swap.h"
 
-void    init_stack_a(node **stack_a, char **argv);
-void	free_errors(node **stack_a);
-long	ft_atol(const char *str);
-bool	erro_syntax(const char *str);
-void	add_node(node **stack, int value);
-bool    error_duplicate(node *stack_a, int nbr);
-int     stack_len(node *stack);
+void	init_stack_a(t_node **stack_a, char **argv);
+void	free_errors(t_node **stack_a);
+bool	error_syntax(const char *str);
+int		error_duplicate(t_node *a, int n);
+int		stack_len(t_node *stack);
 
 #endif
