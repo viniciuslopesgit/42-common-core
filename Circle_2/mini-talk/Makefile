@@ -6,7 +6,7 @@
 #    By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/16 18:39:09 by viniciuslop       #+#    #+#              #
-#    Updated: 2025/03/16 19:26:33 by viniciuslop      ###   ########.fr        #
+#    Updated: 2025/03/18 23:36:19 by viniciuslop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,13 @@ CFLAGS 			= -Wall -Wextra -Werror
 
 SRC_DIR			= src/
 FT_PRINTF_DIR	= files/libft/printf/
+TALK_DIR		= files/talk/
 
 
 COMMANDS 		= $(FT_PRINTF_DIR)ft_numbers.c \
 				$(FT_PRINTF_DIR)ft_printf.c \
-				$(FT_PRINTF_DIR)ft_strs.c
+				$(FT_PRINTF_DIR)ft_strs.c \
+				$(TALK_DIR)talk_utils.c
 
 SRCS_SERVER		= $(SRC_DIR)mini_server.c $(COMMANDS)
 SRCS_CLIENT		= $(SRC_DIR)mini_client.c $(COMMANDS)

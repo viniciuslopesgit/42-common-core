@@ -1,22 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 22:52:54 by vilopes           #+#    #+#             */
-/*   Updated: 2024/12/09 20:59:17 by vilopes          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+////////////////////////////////////////////////////////////////////////////////////////////
+////                                                                                    ////
+////                                Minitalk - FT_PRINTF                                ////
+////                                                                                    ////
+////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stddef.h>
+# include <unistd.h> // Default function for 'write' and 'unsleep';
+# include <stdarg.h> // Default function for variables args; ex: 'int soma(int num, ...)';
+# include <stdlib.h> // Default function for 'malloc';
+# include <stddef.h> // Default function for 'sizeof', 'size_t'...;
 
 long	ft_printf(const char *str, ...);
 void	ft_putchar_len(char c, int long *len);
