@@ -20,9 +20,10 @@
 void setup_signal(void (*handler)(int, siginfo_t *, void *)) // func (*handler) : void handler(int signo, siginfo_t *info, void *context)
 {
     struct sigaction sa; // Usada para especificar o comportamento do sistema ao receber sinais.
-    
+
     sa.sa_flags = SA_SIGINFO; // O manipulador de sinal deve receber informações extras (siginfo_t * e void *).
     sa.sa_sigaction = handler; // Define handler como a função que será chamada quando SIGUSR1 ou SIGUSR2 forem recebidos.
+    sigemptyset(&sa.sa_mask);
     // Chama sigaction() para associar SIGUSR1 e SIGUSR2 à estrutura sa, ou seja, para configurar handler como o manipulador desses sinais.
     sigaction(SIGUSR1, &sa, NULL);
     sigaction(SIGUSR2, &sa, NULL);
