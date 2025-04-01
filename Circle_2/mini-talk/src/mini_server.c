@@ -1,54 +1,59 @@
-////////////////////////////////////////////////////////////////////////////////////////////
-////                                                                                    ////
-////                                 Minitalk - SERVER                                  ////
-////                                                                                    ////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mini_server.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/19 23:29:03 by viniciuslop       #+#    #+#             */
+/*   Updated: 2025/03/30 14:20:44 by viniciuslop      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/talk.h"
 #include "../includes/ft_printf.h"
 
-#include "../includes/talk.h"
-#include "../includes/ft_printf.h"
+static volatile sig_atomic_t g_running = 1;
 
-void signal_handler(int signo, siginfo_t *info, void *context)
+void	signal_handler(int signo, siginfo_t *info, void *context)
 {
-    static int bit_count = 0;              // Variável para contar os bits
-    static unsigned char char_bit = 0;     // Variável para armazenar o caractere reconstruído
+    static int bit_count = 0;
+    static unsigned char char_bit = 0;    
 
-    (void)info;  // Ignorando as variáveis não utilizadas
-    (void)context;
-
-    //ft_printf("Sinal recebido: %d de PID: %d\n", signo, info->si_pid);
-
-    // Verifica o sinal recebido
-    if (signo == SIGUSR2)
-        char_bit |= (1 << (7 - bit_count));  // Se for SIGUSR2, marca o bit como 1
-
-    // Aumenta a contagem de bits
-    bit_count++;
-
-    // Quando 8 bits forem recebidos, o caractere está completo
-    if (bit_count == 8)
-    {
-        if (char_bit == '\0')  // Se for o caractere nulo ('\0'), termina a mensagem
-            write(1, "\n", 1);  // Fim da mensagem
-        else
-            write(1, &char_bit, 1);  // Caso contrário, escreve o caractere reconstruído
-
-        // Reseta as variáveis para o próximo caractere
-        bit_count = 0;
-        char_bit = 0;
-    }
+	(void)context;
+	if (signo == SIGUSR2)
+		char_bit |= (1 << (7 - bit_count));
+	bit_count++;
+	if (bit_count == 8)
+	{
+		if (char_bit == '\0')
+			write(1, "\n", 1);
+		else
+			write(1, &char_bit, 1);
+		bit_count = 0;
+		char_bit = 0;
+	}
+	// Manda o "ack" pro client usando o PID que veio no info
+	if (kill(info->si_pid, SIGUSR1) == -1)
+	{
+		write(2, "Error! Can't sent ack\n", 22);
+		exit(EXIT_FAILURE);
+	}
 }
 
-int main(void)
+void	sigint_handler(int signo)
 {
-    ft_printf("Server PID: %i\n\n", getpid());  // Exibe o PID do servidor
-    setup_signal(signal_handler);  // Configura o handler de sinais
-    //ft_printf("Envie sinais usando SIGUSR1 e SIGUSR2 para este processo:\n");
-    // Espera indefinidamente por sinais
-    while (1)
-        pause();
+	(void)signo;
+	g_running = 0; // encerra o programa de forma limpa
+	ft_printf("\nServidor encerrado.\n");
+	exit(EXIT_FAILURE);
+}
 
-    return EXIT_SUCCESS;
+int	main(void)
+{
+	ft_printf("Server PID: %i\n\n", getpid());
+	setup_signal(signal_handler);
+	while (1)
+		pause();
+	return (EXIT_SUCCESS);
 }

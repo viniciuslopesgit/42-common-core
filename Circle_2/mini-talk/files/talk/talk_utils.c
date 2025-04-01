@@ -1,30 +1,26 @@
-////////////////////////////////////////////////////////////////////////////////////////////
-////                                                                                    ////
-////                               Minitalk - TALK_UTILS                                ////
-////                                                                                    ////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   talk_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/19 23:24:14 by viniciuslop       #+#    #+#             */
+/*   Updated: 2025/03/30 14:22:15 by viniciuslop      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../includes/talk.h"
 
-// typedef struct {
-//     int      si_signo;  /* Número do sinal */
-//     int      si_errno;  /* Código de erro associado, se aplicável */
-//     int      si_code;   /* Código indicando a origem do sinal */
-//     pid_t    si_pid;    /* PID do processo que enviou o sinal (se aplicável) */
-//     uid_t    si_uid;    /* UID do usuário que enviou o sinal (se aplicável) */
-//     void    *si_addr;   /* Endereço da falha de memória (para SIGSEGV, SIGBUS, etc.) */
-//     int      si_status; /* Status do filho (para SIGCHLD) */
-//     long     si_band;   /* Band event para sinais de I/O (SIGPOLL) */
-// } siginfo_t;
-
-void setup_signal(void (*handler)(int, siginfo_t *, void *)) // func (*handler) : void handler(int signo, siginfo_t *info, void *context)
+void setup_signal(void (*handler)(int, siginfo_t *, void *))
 {
-    struct sigaction sa; // Usada para especificar o comportamento do sistema ao receber sinais.
-
-    sa.sa_flags = SA_SIGINFO; // O manipulador de sinal deve receber informações extras (siginfo_t * e void *).
-    sa.sa_sigaction = handler; // Define handler como a função que será chamada quando SIGUSR1 ou SIGUSR2 forem recebidos.
+    struct sigaction sa;
+    sa.sa_flags = SA_SIGINFO;
+    sa.sa_sigaction = handler;
     sigemptyset(&sa.sa_mask);
-    // Chama sigaction() para associar SIGUSR1 e SIGUSR2 à estrutura sa, ou seja, para configurar handler como o manipulador desses sinais.
-    sigaction(SIGUSR1, &sa, NULL);
-    sigaction(SIGUSR2, &sa, NULL);
+    if (sigaction(SIGUSR1, &sa, NULL) == -1 || sigaction(SIGUSR2, &sa, NULL) == -1)
+    {
+        write(2, "Error in sigaction\n", 19);
+        exit(EXIT_FAILURE);
+    }
 }
