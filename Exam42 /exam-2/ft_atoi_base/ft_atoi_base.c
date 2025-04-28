@@ -6,19 +6,12 @@
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 11:03:20 by viniciuslop       #+#    #+#             */
-/*   Updated: 2025/04/20 11:32:16 by viniciuslop      ###   ########.fr       */
+/*   Updated: 2025/04/28 00:55:10 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-
-// int ft_isblank(char c)
-// {
-// 	if (c <= 32)
-// 		return (1);
-// 	return (0);
-// }
 
 int ft_isvalid(char c, int base)
 {
@@ -66,8 +59,8 @@ int	ft_atoi_base(const char *str, int str_base)
 	return (result * sign);
 }
 
-int main (int argc, char **argv)
-{
-	printf("Resultado: %d", ft_atoi_base(argv[1], atoi(argv[2])));
-	return (0);
-}
+// int main (int argc, char **argv)
+// {
+// 	printf("Resultado: %d", ft_atoi_base(argv[1], atoi(argv[2])));
+// 	return (0);
+// }
