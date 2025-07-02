@@ -1,28 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   epur_str.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/06 01:52:11 by viniciuslop       #+#    #+#             */
+/*   Updated: 2025/05/06 02:06:18 by viniciuslop      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int	has_next_word(char *str, int i)
+int is_space(char c)
 {
-	while (str[i])
-	{
-		if (str[i] != ' ' && str[i] != '\t')
-			return (1);
-		i++;
-	}
-	return (0);
+	return (c == ' ' || c == '\t');
 }
 
-int	main(int argc, char **argv)
+int has_next_word(char *str, int i)
+{
+	while(str[i])
+	{
+		if (!is_space(str[i]))
+			return 1;
+		i++;
+	}
+	return 0;
+}
+
+int main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
-		char	*str = argv[1];
-		int		i = 0;
-
-		while (str[i])
+		char *str = argv[1];
+		int i = 0;
+		
+		while(str[i])
 		{
-			while (str[i] == ' ' || str[i] == '\t')
+			while(str[i] && is_space(str[i]))
 				i++;
-			while (str[i] && str[i] != ' ' && str[i] != '\t')
+			while(str[i] && !is_space(str[i]))
 			{
 				write(1, &str[i], 1);
 				i++;
@@ -32,5 +49,5 @@ int	main(int argc, char **argv)
 		}
 	}
 	write(1, "\n", 1);
-	return (0);
+	return 0;
 }

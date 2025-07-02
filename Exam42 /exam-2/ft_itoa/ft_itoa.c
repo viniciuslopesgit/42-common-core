@@ -5,53 +5,79 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/27 01:26:14 by viniciuslop       #+#    #+#             */
-/*   Updated: 2025/04/27 01:43:36 by viniciuslop      ###   ########.fr       */
+/*   Created: 2025/06/09 21:30:26 by viniciuslop       #+#    #+#             */
+/*   Updated: 2025/06/10 02:44:57 by viniciuslop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <stdlib.h>
+#include <stdio.h>
 
-int ft_len_nbr(int nbr)
+int ft_len(int n)
 {
-	int len 	= 0;
-		
-	if (nbr == 0)
-		return (0);
-	if (nbr < 0)
+	int len = 0;
+	
+	if (n == 0)
+		return 1;
+	
+	if(n < 0)
 	{
 		len++;
-		nbr = nbr * -1;
+		n = n * -1;
 	}
-	while (nbr > 0)
+	while (n > 0)
 	{
-		nbr = nbr / 10;
+		n = (n / 10);
 		len++;
 	}
-	return (len);
+	return len;
 }
+
 
 char	*ft_itoa(int nbr)
 {
-	int len = ft_len_nbr(nbr);
-	char *result = (char *)malloc(sizeof(len) + 1);
+
+	int len = ft_len(nbr);
+	
+	char *result = (char *)malloc(sizeof(char) * (len + 1));
 	if (!result)
-		return (NULL);
-		
+		return NULL;
 	result[len] = '\0';
-	if (nbr == 0)
-		result[0] = '0';
+
+	int i = 0;
 	if (nbr < 0)
 	{
 		result[0] = '-';
 		nbr = nbr * -1;
+		i = 1;
 	}
-	while (nbr > 0)
+	else
+		i = 0;
+
+	while(len > i)
 	{
 		--len;
 		result[len] = (nbr % 10) + '0';
 		nbr = nbr / 10;
 	}
+	
 	return (result);
 }
+
+
+// int main(int argc, char **argv)
+// {
+
+// 	char *str = ft_itoa(atoi(argv[1]));
+
+// 	int i = 0;
+// 	int len = ft_len(atoi(argv[1]));
+	
+// 	while(i <= len)
+// 	{
+// 		printf("%c", str[i]);
+// 		i++;
+// 	}
+// 	free(str);
+// 	return 0;
+// }

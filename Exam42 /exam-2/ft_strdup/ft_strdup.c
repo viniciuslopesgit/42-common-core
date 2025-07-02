@@ -1,43 +1,42 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/06 14:22:57 by viniciuslop       #+#    #+#             */
-/*   Updated: 2025/04/06 14:57:29 by viniciuslop      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
+
+
+
+
+
+
+#include <stdio.h>
 #include <stdlib.h>
 
-int ft_len (const char * str);
-
-char *ft_strdup(const char *s)
+char    *ft_strdup(char *src)
 {
-	char *mem;
-	int len;
-	int i;
-	
-	len = ft_len(s) + 1;
-	mem = (char *)malloc(len * sizeof(char));
-	if (!mem)
+	int i = 0;
+	int len = 0;
+
+	while(src[len])
+		len++;
+
+	char *result = (char *)malloc(sizeof(char) * (len + 1));
+	if (!result)
 		return NULL;
-	i = 0;
-	while (i < len)
+
+	while(src[i])
 	{
-		mem[i] = s[i];
+		result[i] = src[i];
 		i++;
 	}
-	return (mem);
-	
+	result[i] = '\0';
+
+	return result;
 }
 
-int ft_len(const char *str)
-{
-	int len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
+
+// int main(int argc, char **argv)
+// {
+
+// 	char *result = ft_strdup(argv[1]);
+
+// 	printf("%s\n", result);
+
+// 	return 0;
+// }
