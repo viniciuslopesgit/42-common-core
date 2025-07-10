@@ -1,41 +1,46 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   fprime.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: viniciuslopes <viniciuslopes@student.42    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/10 17:46:49 by viniciuslop       #+#    #+#             */
-/*   Updated: 2025/05/10 18:08:54 by viniciuslop      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
+
 
 #include <stdio.h>
 #include <stdlib.h>
+
+
+int is_prime(int n)
+{
+	return (n % 2 != 0);
+}
+
 int main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
 		int n = atoi(argv[1]);
-		int divisor = 2;
 
+		if (n < 0)
+		{
+			printf("\n");
+			return 0;
+		}
 		if (n == 1)
 		{
 			printf("1\n");
 			return 0;
 		}
-		while(n > 1)
+
+		int i = 2;
+		while(n >= 2)
 		{
-			if (n % divisor == 0)
+			if (n % i == 0)
 			{
-				printf("%d", divisor);
-				n = n / divisor;
-				if (n > 1)
+				n = n / i;
+				printf("%d", i);
+				if (n >= 2)
 					printf("*");
+				i = 2;
 			}
-			else
-				divisor++;	
+			i++;
 		}
+		
 	}
 	printf("\n");
 

@@ -107,3 +107,11 @@ rev_print
 inter
 ft_range
 is_power_of_2
+ft_strcpy
+is_power_of_2
+lcm
+sort_list
+ft_swap
+alpha_mirror
+ft_atoi_base
+fprime
