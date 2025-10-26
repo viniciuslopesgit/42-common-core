@@ -1,0 +1,37 @@
+ _____________________________________________________
+|     __ __ ___       _____      __                __ |
+|    / // /|__ \     / ___/_____/ /_  ____  ____  / / |
+|   / // /___/ /_____\__ \/ ___/ __ \/ __ \/ __ \/ /  |
+|  /__  __/ __/_____/__/ / /__/ / / / /_/ / /_/ / /   |
+|    /_/ /____/    /____/\___/_/ /_/\____/\____/_/    |
+|                                                     |
+|_____________________________________________________|
+
+
+
+EXAM - RANK03
+
+Com base em discussões recentes em fóruns como o Reddit, o novo Exam Rank 03 (equivalente ao Exam 3) da 42 School, incluindo o campus de Porto, foi atualizado e agora consiste em dois níveis a serem completados em até 3 horas. O exame seleciona exercícios aleatoriamente de um pool, mas os que têm sido mencionados com frequência como possíveis incluem:
+
+### Nível 1 (foco em manipulação de input e strings):
+- **Filter**: Uma função que lê do stdin, recebe um argumento de string e substitui todas as ocorrências dessa string por asteriscos (ex: "./filter cat" transforma "Fish cat dog Fish" em "Fish *** dog ***"). Envolve gerenciamento de buffers e leitura contínua.
+- **Broken Get Next Line (GNL)**: Reescrita ou correção de uma implementação defeituosa do get_next_line, lidando com leitura de arquivos/linhas com buffer sizes variados.
+
+### Nível 2 (foco em algoritmos e problemas semelhantes a LeetCode):
+- **Superset**: Geração ou verificação de supersets (conjuntos que contêm todos os elementos de outro).
+- **NQueens**: Solução otimizada do problema das N rainhas (posicionar rainhas em um tabuleiro sem ataques mútuos), com restrições de timeout que impedem brute force simples.
+- **Permutation**: Geração de permutações de um conjunto de elementos.
+- **Powerset**: Cálculo do powerset (todos os subconjuntos possíveis de um set).
+- **Rip**: Possivelmente uma variação algorítmica (detalhes exatos variam, mas mencionado como problema similar aos acima).
+
+Esses exercícios substituem os antigos como ft_printf e get_next_line padrão, com variações possíveis por campus (embora o currículo seja padronizado). Para praticar, recomenda-se buscar repositórios no GitHub com simulações de exams ou resolver problemas equivalentes no LeetCode. Lembre-se de que o exame testa compreensão prática, então foque em edge cases, gerenciamento de memória e leitura de stdin.
+
+
+---------------------------------------------------------
+
+FILTER.C
+
+unistd.h
+stdio.h
+stdin
+memmem
