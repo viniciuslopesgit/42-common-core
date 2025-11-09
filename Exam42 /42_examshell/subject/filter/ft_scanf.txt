@@ -1,0 +1,169 @@
+==================================================
+Nome da tarefa: ft_scanf
+Ficheiros esperados: ft_scanf.c
+Funções permitidas: fgetc, ungetc, ferror, feof, isspace, isdigit, stdin, va_start, va_arg, va_copy, va_end
+--------------------------------------------------------------------------------
+
+Escreva uma função chamada `ft_scanf` que imite a função `scanf` real com as seguintes restrições:
+
+- Deve lidar apenas com as seguintes conversões: s, d e c
+- Não tem de lidar com as opções *, m e '
+- Não tem de lidar com a largura máxima do campo
+- Não tem de lidar com os caracteres modificadores de tipo (h, hh, l, etc.)
+- Não tem de lidar com as conversões que começam por %n$
+
+A sua função deve ser declarada da seguinte forma:
+
+int ft_scanf(const char *, ... );
+
+Encontrará neste diretório um ficheiro contendo parte do código necessário; basta completá-lo.
+
+Para testar o seu programa, compare os seus resultados com a função scanf real.
+
+Dica: poderá ser necessário consultar o manual da função scanf.
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
+
+int match_space(FILE *f)
+{
+
+// Pode inserir código aqui
+
+return (0);
+
+}
+
+int match_char(FILE *f, char c)
+{
+
+// Pode inserir código aqui
+
+return (0);
+
+}
+
+int scan_char(FILE *f, va_list ap)
+{
+
+// Pode inserir código aqui
+
+return (0);
+}
+
+int scan_int(FILE *f, va_list ap)
+{
+
+// Pode inserir código aqui
+
+return (0);
+
+}
+
+int scan_string(FILE *f, va_list ap)
+{
+
+// Pode inserir código aqui
+
+return (0);
+
+}
+
+int match_conv(FILE *f, const char **formato, va_list ap)
+
+{
+switch (**formato)
+
+{
+caso 'c':
+
+return scan_char(f, ap);
+
+case 'd':
+
+match_space(f);
+
+return scan_int(f, ap);
+
+case 's':
+
+match_space(f);
+
+return scan_string(f, ap);
+
+caso EOF:
+
+return -1;
+
+default:
+
+return -1;
+}
+
+int ft_vfscanf(FILE *f, const char *formato, va_list ap)
+{
+
+int nconv = 0;
+
+int c = fgetc(f);
+
+if (c == EOF)
+
+return EOF;
+
+ungetc(c, f);
+
+while (*formato)
+
+{
+if (*formato == '%')
+
+{
+format++;
+
+if (match_conv(f, &formato, ap) != 1)
+
+break;
+
+else
+nconv++;
+
+}
+
+else if (isspace(*formato))
+
+{
+if (match_space(f) == -1)
+
+break;
+
+}
+
+else if (match_char(f, *formato) != 1)
+
+break;
+
+format++;
+
+}
+
+se (ferror(f))
+
+return EOF;
+
+return nconv; }
+
+int ft_scanf(const char *formato, ...)
+{
+
+// ...
+
+int ret = ft_vfscanf(stdin, format, ap);
+
+// ...
+
+return ret;
+
+}
+==================================================

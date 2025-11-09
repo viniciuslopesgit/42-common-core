@@ -1,0 +1,55 @@
+Your subject: broken_gnl
+==================================================
+Assignment name : broken_GNL
+Expected files  : get_next_line.c get_next_line.h
+Allowed functions : read, free, malloc
+--------------------------------------------------------------------------------
+
+Corrija a função ‘get_next_line’ no ficheiro get_next_line.c, cujo protótipo deve ser:
+char *get_next_line(int fd);
+
+Também pode precisar de corrigir outras funções.
+
+Descrição da função ‘get_next_line’:
+
+A sua função deve retornar uma linha que foi lida do descritor de ficheiro
+passado como parâmetro.
+
+Uma ‘linha lida’ é definida como uma sucessão de 0 a n caracteres
+terminados por ‘\n’ (código ASCII 0x0a) ou com Fim de Ficheiro (EOF).
+
+A linha deve ser devolvida incluindo o ‘\n’ se existir um no final
+da linha lida.
+
+Ao atingir o EOF, deve armazenar o buffer atual num char* e
+retorná-lo. Se o buffer estiver vazio, deverá devolver NULL.
+
+Em caso de erro, devolva NULL.
+
+Se não retornar NULL, o ponteiro deverá ser libertável.
+
+O seu programa será compilado com a flag -D BUFFER_SIZE=xx, que deverá ser
+utilizado como o tamanho do buffer para as chamadas de leitura nas suas funções.
+
+A sua função deve estar livre de fugas de memória.
+
+Ao atingir o EOF (fim de ficheiro), a sua função não deve manter qualquer memória alocada com
+malloc, exceto a linha que foi devolvida.
+
+Chamar a sua função get_next_line num loop permitirá que leia
+o texto disponível num descritor de ficheiro uma linha de cada vez até ao final do
+texto, independentemente do tamanho do texto ou de qualquer uma das suas linhas.
+
+Certifique-se de que a sua função se comporta corretamente ao ler a partir de um ficheiro, da
+saída padrão, de um redireccionamento etc.
+
+Nenhuma chamada a outra função será feita no descritor de ficheiro entre duas chamadas
+de get_next_line.
+
+Por fim, consideramos que get_next_line tem um comportamento indefinido ao ler
+de um ficheiro binário.
+--------------------------------------------------------------------------------
+==================================================
+Digite 'test' para testar o seu código, 'next' para obter uma nova pergunta ou 'exit' para sair.
+
+Introduza o comando:
