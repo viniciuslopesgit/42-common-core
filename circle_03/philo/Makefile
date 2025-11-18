@@ -5,7 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC		=	main.c \
 			utils/time.c \
-			utils/init.c
+			utils/init.c \
+			utils/threads.c
 
 
 OBJ = $(SRC:.c=.o)

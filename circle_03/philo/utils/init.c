@@ -54,7 +54,10 @@ void    init_philos(t_philo *philos, t_program *program,
         philos[i].l_fork = &forks[i];
 
         if (i == params->number_of_philosophers - 1)
+            philos[i].r_fork = &forks[0];
+        else
             philos[i].r_fork = &forks[i + 1];
+
         i++;
     }
 }

@@ -1,6 +1,5 @@
 #include "philosophers.h"
 
-#define PHILO_MAX 200 // Macro constante
 
 int	ft_atoi(const char *str)
 {
@@ -91,6 +90,8 @@ int	main(int argc, char **argv)
     printf("Init OK! %d philosophers initialized.\n",
         params.number_of_philosophers);
 
+    printf("Init OK! Stating threads...\n");
+        thread_create(philos, &program);
 
 /*
     printf("Parsed OK: %d philosophers, die=%d eat=%d sleep=%d must_eat=%d\n",

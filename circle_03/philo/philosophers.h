@@ -7,6 +7,8 @@
 # include <sys/time.h>
 # include <pthread.h>
 
+#define PHILO_MAX 200 // Macro constante
+
 // argumentos do programa
 typedef struct s_params
 {
@@ -49,6 +51,8 @@ void    init_program(t_program *program, t_params *params);
 void    init_forks(pthread_mutex_t *forks, int count);
 void    init_philos(t_philo *philos, t_program *program,
     pthread_mutex_t *forks, t_params *params);
+void    thread_create(t_philo *philos, t_program *program);
+void    print_status(t_philo *philo, char *status);
 
 #endif
 
