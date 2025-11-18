@@ -61,19 +61,47 @@ int check_valid_args(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_params	params;
+	t_params	        params;
+    t_program           program;
+    t_philo             philos[PHILO_MAX];
+    pthread_mutex_t     forks[PHILO_MAX];
 
-	if (argc != 6)
+    // ERRO se o número de argumentos NÃO for 5 E NÃO for 6.
+	if (argc != 5 && argc != 6)
 		return (write(2, "Wrong argument count\n", 22), 1);
 	if (check_valid_args(argc, argv))
 		return (1);
+    
+    // carrega os valores
 	params.number_of_philosophers = ft_atoi(argv[1]);
 	params.time_to_die = ft_atoi(argv[2]);
 	params.time_to_eat = ft_atoi(argv[3]);
 	params.time_to_sleep = ft_atoi(argv[4]);
-	params.must_eat_count = (argc == 6) ? ft_atoi(argv[5]) : -1;
-	printf("Parsed OK: %d philosophers, die=%d eat=%d sleep=%d must_eat=%d\n",
+    if (argc == 6)
+        params.must_eat_count = ft_atoi(argv[5]);
+    else
+        params.must_eat_count = -1;
+
+	// params.must_eat_count = (argc == 6) ? ft_atoi(argv[5]) : -1;
+	
+    init_program(&program, &params);
+    init_forks(forks, params.number_of_philosophers);
+    init_philos(philos, &program, forks, &params);
+
+    printf("Init OK! %d philosophers initialized.\n",
+        params.number_of_philosophers);
+
+
+/*
+    printf("Parsed OK: %d philosophers, die=%d eat=%d sleep=%d must_eat=%d\n",
 		params.number_of_philosophers, params.time_to_die,
 		params.time_to_eat, params.time_to_sleep, params.must_eat_count);
+
+    printf("Testing timing: sleeping 1 second...\n");
+    long t1 = get_time_ms();
+    ms_sleep(1000);
+    long t2 = get_time_ms();
+    printf("Slept for ~%ld ms\n", t2 - t1);
+*/
 	return (0);
 }

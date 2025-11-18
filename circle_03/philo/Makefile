@@ -3,7 +3,11 @@ NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = main.c
+SRC		=	main.c \
+			utils/time.c \
+			utils/init.c
+
+
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
