@@ -53,6 +53,7 @@ void    init_philos(t_philo *philos, t_program *program,
     pthread_mutex_t *forks, t_params *params);
 void    thread_create(t_philo *philos, t_program *program);
 void    print_status(t_philo *philo, char *status);
+void    *death_monitor(void *arg);
 
 #endif
 

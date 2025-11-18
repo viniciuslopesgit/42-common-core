@@ -48,6 +48,7 @@ void	*philo_routine(void *arg)
 void	thread_create(t_philo *philos, t_program *program)
 {
 	pthread_t	threads[PHILO_MAX];
+    pthread_t   monitor;
 	int			i;
 
 	i = 0;
@@ -56,12 +57,16 @@ void	thread_create(t_philo *philos, t_program *program)
 		pthread_create(&threads[i], NULL, philo_routine, &philos[i]);
 		i++;
 	}
+
+    pthread_create(&monitor, NULL, death_monitor, philos);
+
 	i = 0;
 	while (i < program->params.number_of_philosophers)
 	{
 		pthread_join(threads[i], NULL);
 		i++;
 	}
+    pthread_join(monitor, NULL);
 }
 
 /*
