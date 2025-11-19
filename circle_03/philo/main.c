@@ -93,6 +93,7 @@ int	main(int argc, char **argv)
     printf("Init OK! Stating threads...\n");
         thread_create(philos, &program);
 
+	destroy_all(&program, forks);
 /*
     printf("Parsed OK: %d philosophers, die=%d eat=%d sleep=%d must_eat=%d\n",
 		params.number_of_philosophers, params.time_to_die,

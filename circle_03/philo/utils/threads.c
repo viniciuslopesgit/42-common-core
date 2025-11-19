@@ -16,24 +16,36 @@ void	print_status(t_philo *philo, char *status)
 void	*philo_routine(void *arg)
 {
 	t_philo	*philo = (t_philo *)arg;
+	if (philo->id % 2 == 0)
+		usleep(500);
 
 	while (!philo->program->someone_died)
 	{
-		// Pegar forks
+		// Pegar 1º garfo
 		pthread_mutex_lock(philo->l_fork);
 		print_status(philo, "has taken a fork");
+
+		// Pegar 2º garfo
 		pthread_mutex_lock(philo->r_fork);
 		print_status(philo, "has taken a fork");
 
 		// Comer
-		print_status(philo, "is eating");
+		pthread_mutex_lock(&philo->program->meal_mutex);
 		philo->last_meal = get_time_ms();
-		ms_sleep(philo->program->params.time_to_eat);
 		philo->meals_eaten++;
+		pthread_mutex_unlock(&philo->program->meal_mutex);
+
+		print_status(philo, "is eating");
+		ms_sleep(philo->program->params.time_to_eat);
 
 		// Soltar forks
 		pthread_mutex_unlock(philo->l_fork);
 		pthread_mutex_unlock(philo->r_fork);
+
+		// Verificar se já terminou
+		if (philo->must_eat != -1 &&
+			philo->meals_eaten >= philo->must_eat)
+			break;
 
 		// Dormir
 		print_status(philo, "is sleeping");

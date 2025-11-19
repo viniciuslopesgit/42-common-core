@@ -35,6 +35,7 @@ typedef struct s_philo
     int                 id;
     long                last_meal;
     int                 meals_eaten;
+    int                 must_eat;
     pthread_mutex_t     *l_fork;
     pthread_mutex_t     *r_fork;
     t_program           *program;
@@ -54,6 +55,7 @@ void    init_philos(t_philo *philos, t_program *program,
 void    thread_create(t_philo *philos, t_program *program);
 void    print_status(t_philo *philo, char *status);
 void    *death_monitor(void *arg);
+void    destroy_all(t_program *program, pthread_mutex_t *forks);
 
 #endif
 

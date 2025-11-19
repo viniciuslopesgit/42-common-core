@@ -1,0 +1,51 @@
+O que já fizeste
+
+Parsing de argumentos e validação
+
+check_valid_args() ✔
+
+Suporta argumentos obrigatórios e opcional (must_eat_count) ✔
+
+Estruturas e inicialização
+
+t_program, t_philo, forks, mutexes ✔
+
+Inicialização circular de forks ✔
+
+Mutexes print_mutex e meal_mutex ✔
+
+Time utilities
+
+get_time_ms() ✔
+
+ms_sleep() ✔
+
+Threads de filósofos (philo_routine)
+
+Comer, dormir, pensar ✔
+
+Logs sincronizados com mutex ✔
+
+Uso correto de l_fork e r_fork ✔
+
+Monitor de morte (death_monitor)
+
+Verifica time_to_die ✔
+
+Atualiza someone_died ✔
+
+Implementa must_eat_count opcional ✔
+
+Thread creation e join
+
+Criação de threads de filósofos ✔
+
+Criação e join da thread monitor ✔
+
+Memória
+
+Arrays grandes no heap (philos e forks) ✔
+
+Todos mallocs libertados ✔
+
+Valgrind mostra 0 leaks ✔
