@@ -37,10 +37,7 @@ void	*death_monitor(void *arg)
 				i++;
 			}
 			if (all_ate)
-			{
-				program->someone_died = 1;
-				return (NULL);
-			}
+				break;
 		}
 		usleep(1000); // dormir pouco para não consumir CPU
 	}

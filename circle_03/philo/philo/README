@@ -1,0 +1,130 @@
+Philosopher Project (42 School)
+
+Simulação concorrente do clássico problema dos filósofos.
+
+🧠 Sobre o projeto
+
+O objetivo é implementar uma simulação multithread usando pthread, mutexes e sincronização precisa, evitando data races, deadlocks e erros temporais.
+
+A tua versão:
+
+✔ Sem deadlocks
+✔ Sem data races
+✔ Timestamp preciso
+✔ Monitor de morte funcional
+✔ Suporta limite opcional de refeições
+✔ Compatível com o LazyPhiloTester
+✔ Zero memory leaks
+✔ Código norm-conforme
+
+🏗 Compilação
+./philo <n_philos> <time_to_die> <time_to_eat> <time_to_sleep> [must_eat]
+
+./philo 4 800 200 200 3
+
+
+Parâmetros
+Parâmetro	Significado
+n_philos	Número de filósofos (>= 1)
+time_to_die	Tempo máximo sem comer (ms)
+time_to_eat	Tempo que demora a comer
+time_to_sleep	Tempo que dorme depois de comer
+must_eat (opcional)	Programa termina quando TODOS comerem este número
+
+-- 
+
+🔧 Compilação e flags
+
+-pthread
+
+-Wall -Wextra -Werror
+
+Estritamente sem variável global
+
+Total thread safety
+
+--
+
+🛡 Proteções implementadas
+
+Mutex para exclusão de print
+
+Mutex para atualizar tempo da última refeição
+
+Mutexes de forks independentes
+
+Desfasamento inicial para evitar contenda
+
+Monitor independente para morte
+
+Saída limpa com pthread_join
+
+--
+
+
+Valgrind
+
+valgrind --leak-check=full ./philo 4 800 200 200
+
+✔ zero leaks
+✔ zero UP/UR
+✔ zero invalid reads/writes
+
+--
+
+
+        ┌───────────────────────┐
+        │        main.c         │
+        └───────────┬───────────┘
+                    │
+         parse_args │
+                    ▼
+     ┌───────────────────────────┐
+     │       init_program        │
+     │  - load params            │
+     │  - set start_time         │
+     │  - init print_mutex       │
+     │  - init meal_mutex        │
+     └───────┬───────────────────┘
+             │
+             ▼
+     ┌───────────────────────────┐
+     │        init_forks         │
+     │  - init n mutex forks     │
+     └───────┬───────────────────┘
+             │
+             ▼
+     ┌───────────────────────────┐
+     │        init_philos        │
+     │  - assign forks L/R       │
+     │  - store last_meal        │
+     │  - bind program pointer   │
+     └───────┬───────────────────┘
+             │
+             ▼
+     ┌───────────────────────────┐
+     │       thread_create       │
+     │  - N philo threads        │
+     │  - 1 monitor thread       │
+     └───────┬───────────────────┘
+             │
+             ▼
+     ┌─────────────────────────────┐
+     │        philo_routine        │
+     │  LOOP:                      │
+     │   take forks                │
+     │   eat → update last_meal    │
+     │   sleep                     │
+     │   think                     │
+     └─────────────────────────────┘
+             │
+             ▼
+     ┌─────────────────────────────┐
+     │        death_monitor         │
+     │  - scans all philos          │
+     │  - lock meal_mutex           │
+     │  - check (now - last_meal)   │
+     │  - if > t_die → print death  │
+     │  - stop simulation           │
+     └─────────────────────────────┘
+

@@ -52,7 +52,7 @@ void    init_philos(t_philo *philos, t_program *program,
         philos[i].meals_eaten = 0;
         philos[i].last_meal = get_time_ms();
 
-        if (params->must_eat_count != -1)
+        if (params->must_eat_count > 0)
             philos[i].must_eat = params->must_eat_count;
         else
             philos[i].must_eat = -1;

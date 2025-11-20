@@ -16,16 +16,29 @@ void	print_status(t_philo *philo, char *status)
 void	*philo_routine(void *arg)
 {
 	t_philo	*philo = (t_philo *)arg;
+
+	// delay inicial para evitar colisão de threads
 	if (philo->id % 2 == 0)
 		usleep(500);
 
 	while (!philo->program->someone_died)
 	{
-		// Pegar 1º garfo
+		// Caso especial: 1 filósofo
+		if (philo->l_fork == philo->r_fork)
+		{
+			pthread_mutex_lock(philo->l_fork);
+			print_status(philo, "has taken a fork");
+			// espera curta até o monitor marcar a morte
+			while (!philo->program->someone_died)
+				usleep(1000);
+			pthread_mutex_unlock(philo->l_fork);
+			break;
+		}
+
+		// Pegar forks normalmente
 		pthread_mutex_lock(philo->l_fork);
 		print_status(philo, "has taken a fork");
 
-		// Pegar 2º garfo
 		pthread_mutex_lock(philo->r_fork);
 		print_status(philo, "has taken a fork");
 
@@ -42,9 +55,12 @@ void	*philo_routine(void *arg)
 		pthread_mutex_unlock(philo->l_fork);
 		pthread_mutex_unlock(philo->r_fork);
 
-		// Verificar se já terminou
+		// Verificar se já terminou refeições obrigatórias
 		if (philo->must_eat != -1 &&
 			philo->meals_eaten >= philo->must_eat)
+			break;
+
+		if (philo->program->someone_died)
 			break;
 
 		// Dormir
@@ -56,6 +72,7 @@ void	*philo_routine(void *arg)
 	}
 	return (NULL);
 }
+
 
 void	thread_create(t_philo *philos, t_program *program)
 {
