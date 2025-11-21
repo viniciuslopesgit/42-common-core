@@ -1,7 +1,7 @@
 NAME = philo
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -pthread -03
 
 SRC		=	main.c \
 			utils/time.c \
@@ -18,7 +18,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(NAME)
 
 fclean: clean
 	rm -f $(NAME)
