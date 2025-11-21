@@ -6,13 +6,11 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 09:17:55 by druina            #+#    #+#             */
-/*   Updated: 2025/11/21 21:24:22 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/11/21 22:02:48 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-// Checks the len of the string
 
 int	ft_strlen(char *str)
 {
@@ -25,7 +23,6 @@ int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
-// Own version of atoi
 
 int	ft_atoi(char *str)
 {
@@ -65,7 +62,7 @@ void	destory_all(char *str, t_program *program, pthread_mutex_t *forks)
 	pthread_mutex_destroy(&program->write_lock);
 	pthread_mutex_destroy(&program->meal_lock);
 	pthread_mutex_destroy(&program->dead_lock);
-	while (i < program->philos[0].num_of_philos)
+	while (i < program->philos[0].number_of_philosophers)
 	{
 		pthread_mutex_destroy(&forks[i]);
 		i++;

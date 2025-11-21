@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 21:24:35 by vilopes           #+#    #+#             */
-/*   Updated: 2025/11/21 21:28:33 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/11/21 22:15:33 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <sys/time.h>
 # include <unistd.h>
 
-# define PHILO_MAX 300
+# define PHILO_MAX 200
 
 typedef struct s_philo
 {
@@ -31,7 +31,7 @@ typedef struct s_philo
 	size_t			time_to_eat;
 	size_t			time_to_sleep;
 	size_t			start_time;
-	int				num_of_philos;
+	int				number_of_philosophers;
 	int				num_times_to_eat;
 	int				*dead;
 	pthread_mutex_t	*r_fork;
@@ -39,7 +39,8 @@ typedef struct s_philo
 	pthread_mutex_t	*write_lock;
 	pthread_mutex_t	*dead_lock;
 	pthread_mutex_t	*meal_lock;
-}					t_philo;
+}	t_philo;
+
 typedef struct s_program
 {
 	int				dead_flag;
@@ -47,7 +48,7 @@ typedef struct s_program
 	pthread_mutex_t	meal_lock;
 	pthread_mutex_t	write_lock;
 	t_philo			*philos;
-}					t_program;
+}	t_program;
 
 // Main functions
 int					check_arg_content(char *arg);

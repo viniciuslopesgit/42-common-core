@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:05:40 by druina            #+#    #+#             */
-/*   Updated: 2025/11/21 21:28:50 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/11/21 22:02:22 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_input(t_philo *philo, char **argv)
 	philo->time_to_die = ft_atoi(argv[2]);
 	philo->time_to_eat = ft_atoi(argv[3]);
 	philo->time_to_sleep = ft_atoi(argv[4]);
-	philo->num_of_philos = ft_atoi(argv[1]);
+	philo->number_of_philosophers = ft_atoi(argv[1]);
 	if (argv[5])
 		philo->num_times_to_eat = ft_atoi(argv[5]);
 	else
@@ -48,7 +48,7 @@ void	init_philos(t_philo *philos, t_program *program, pthread_mutex_t *forks,
 		philos[i].dead = &program->dead_flag;
 		philos[i].l_fork = &forks[i];
 		if (i == 0)
-			philos[i].r_fork = &forks[philos[i].num_of_philos - 1];
+			philos[i].r_fork = &forks[philos[i].number_of_philosophers - 1];
 		else
 			philos[i].r_fork = &forks[i - 1];
 		i++;

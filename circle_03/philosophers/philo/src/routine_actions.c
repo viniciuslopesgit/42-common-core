@@ -6,7 +6,7 @@
 /*   By: vilopes <vilopes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 08:48:15 by druina            #+#    #+#             */
-/*   Updated: 2025/11/21 21:24:30 by vilopes          ###   ########.fr       */
+/*   Updated: 2025/11/21 22:02:37 by vilopes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	eat(t_philo *philo)
 {
 	pthread_mutex_lock(philo->r_fork);
 	print_message("has taken a fork", philo, philo->id);
-	if (philo->num_of_philos == 1)
+	if (philo->number_of_philosophers == 1)
 	{
 		ft_usleep(philo->time_to_die);
 		pthread_mutex_unlock(philo->r_fork);
